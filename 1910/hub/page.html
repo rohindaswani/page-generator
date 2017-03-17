@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hub</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <style>
+    body { margin: 0; padding: 0; width: 100%; margin: 0 auto; }
+    body > img { width: 100%; }
+    .banner { display: block; width: 67vw; }
+    .top { margin-left: 13vw; padding: 2vw;}
+    .container { position: relative; }
+    .background { width: 100vw;}
+    #side-ad { position: absolute; left: 60.333vw; top: 65vw; width: 20vw; }
+    #square-ad { position: absolute; left: 60.333vw; top: 159.266vw; width: 22.4vw; }
+    #selfdriving {
+      display: inline-block;
+      position: absolute;
+      top: 0.7vw;
+      left: 14vw;
+      width: 68.5vw;
+      height: 27vw;
+    }
+    #personal-mobility {
+      display: inline-block;
+      position: absolute;
+      top: 29vw;
+      left: 14vw;
+      width: 14vw;
+      height: 25.5vw;
+    }
+    #collaborating {
+      display: inline-block;
+      position: absolute;
+      top: 29vw;
+      left: 29.5vw;
+      width: 29.5vw;
+      height: 25.5vw;
+    }
+    #main-street {
+      display: inline-block;
+      position: absolute;
+      top: 56vw;
+      left: 14vw;
+      width: 22vw;
+      height: 11.6vw;
+    }
+    #getting-personal {
+      display: inline-block;
+      position: absolute;
+      top: 56vw;
+      left: 37.5vw;
+      width: 21.8vw;
+      height: 24.7vw;
+    }
+    #roll_on {
+      display: inline-block;
+      position: absolute;
+      top: 69vw;
+      left: 14vw;
+      width: 22vw;
+      height: 11.6vw;
+    }
+    #fast-track {
+      display: inline-block;
+      position: absolute;
+      top: 82vw;
+      left: 14vw;
+      width: 45vw;
+      height: 23.5vw;
+    }
+    #sensor {
+      display: inline-block;
+      position: absolute;
+      top: 107vw;
+      left: 37.5vw;
+      width: 14vw;
+      height: 23vw;
+    }
+    #fastlane {
+      display: inline-block;
+      position: absolute;
+      top: 107vw;
+      left: 53vw;
+      width: 29.2vw;
+      height: 23vw;
+    }
+    #next-revolution {
+      display: inline-block;
+      position: absolute;
+      top: 131.7vw;
+      left: 60.7vw;
+      width: 21.6vw;
+      height: 12vw;
+    }
+    #greener-fastlane {
+      display: inline-block;
+      position: absolute;
+      top: 131.7vw;
+      left: 37.5vw;
+      width: 21.6vw;
+      height: 26vw;
+    }
+    .link:hover {
+      outline: 5px solid black;
+      cursor: pointer;
+    }
+  </style>
+  <script src='../../scripts/randomize.js'></script>
+</head>
+<body>
+  <img alt="" src="hub-image-1.png">
+  <img id="top-banner" class="banner top" src="../ads/banner_1.png">
+  <div class="container">
+    <img alt="" class="background" src="hub-image-2.png">
+    <div class="link" id="selfdriving" data-hg-url="../delivering_tomorrows_selfdriving_fleet/page.html"></div>
+    <div class="link" id="personal-mobility" data-hg-url="../next_generation_personal_mobility/page.html"></div>
+    <div class="link" id="collaborating" data-hg-url="../collaborating_on_tomorrows_fastlane/page.html"></div>
+    <div class="link" id="main-street" data-hg-url="../from_lab_to_main_street/page.html"></div>
+    <div class="link" id="getting-personal" data-hg-url="../getting_personal/page.html"></div>
+    <div class="link" id="roll_on" data-hg-url="../roll_on/page.html"></div>
+    <div class="link" id="fast-track" data-hg-url="../fast_track_to_the_future/page.html"></div>
+    <div class="link" id="sensor" data-hg-url="../sensor_based_economy/page.html"></div>
+    <div class="link" id="fastlane" data-hg-url="../fastlane_to_the_future/page.html"></div>
+    <div class="link" id="next-revolution" data-hg-url="../inside_the_tech_powering_the_next_industrial_revolution/page.html"></div>
+    <div class="link" id="greener-fastlane" data-hg-url="../building_better_safer_greener_fastlane/page.html"></div>
+    <img id="side-ad" src="../ads/side_ad_1.png">
+    <img id="square-ad" src="../ads/square_ad_1.png">
+  </div>
+  <script>
+    var key = '1910';
+    var object = sessionStorage.getItem(key);
+    if(object == null) {
+      contents = { delivering_tomorrows_selfdriving_fleet: null, next_generation_personal_mobility: null,
+                  collaborating_on_tomorrows_fastlane: null, from_lab_to_main_street: null,
+                  getting_personal: null, roll_on: null, fast_track_to_the_future: null, sensor_based_economy: null,
+                  fastlane_to_the_future: null, inside_the_tech_powering_the_next_industrial_revolution: null,
+                  building_better_safer_greener_fastlane: null };
+      object = JSON.stringify(contents);
+      sessionStorage.setItem(key, object);
+    }
+
+    Array.from(document.querySelectorAll(".link")).forEach(function(link){
+      link.addEventListener('click', function(event){
+        window.location.href = link.dataset.hgUrl;
+      })
+    });
+    if(object){
+      if(Object.keys(object).length > 0) {
+        window.parent.postMessage(object, '*');
+      }
+    }
+
+    var banners = ['banner_1.png', 'banner_2.png', 'banner_3.png', 'banner_4.png', 'banner_5.png', 'banner_6.png'];
+    var sideAds = ['side_ad_1.png', 'side_ad_2.png', 'side_ad_3.png', 'side_ad_4.png', 'side_ad_5.png'];
+    var squareAds = ['square_ad_1.png', 'square_ad_2.png', 'square_ad_3.png', 'square_ad_4.png'];
+    function choose(target, list) { target.src = list[Math.floor(Math.random() * list.length)] }
+    function addPath(list) { return list.map(function(entry) { return "../ads/" + entry }) }
+    choose(document.querySelector('#top-banner'), addPath(banners));
+    choose(document.querySelector('#side-ad'), addPath(sideAds));
+    choose(document.querySelector('#square-ad'), addPath(squareAds));
+
+    var ad_path = "../ads/";
+    var banner_ads = [
+      { url: 'banner_1.png', duration: 10000},
+      { url: 'banner_2.png', duration: 10000},
+      { url: 'banner_3.png', duration: 10000},
+      { url: 'banner_4.png', duration: 10000},
+      { url: 'banner_5.png', duration: 10000},
+      { url: 'banner_6.png', duration: 10000}
+    ];
+    var side_ads = [
+      { url: 'side_ad_1.png', duration: 10000},
+      { url: 'side_ad_2.png', duration: 10000},
+      { url: 'side_ad_3.png', duration: 10000},
+      { url: 'side_ad_4.png', duration: 10000},
+      { url: 'side_ad_5.png', duration: 10000}
+    ];
+
+    var square_ads = [
+      { url: 'square_ad_1.png', duration: 10000},
+      { url: 'square_ad_2.png', duration: 10000},
+      { url: 'square_ad_3.png', duration: 10000},
+      { url: 'square_ad_4.png', duration: 10000}
+    ];
+    randomizeAds('#top-banner', ad_path, banner_ads);
+    randomizeAds('#side-ad', ad_path, side_ads);
+    randomizeAds('#square-ad', ad_path, square_ads);
+  </script>
+</body>
+</html>

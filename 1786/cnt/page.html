@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Traveller</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <style>
+    body { margin: 0; padding: 0; width: 1000px; margin: 0 auto; }
+    #banner { position: absolute; left: 124px; top: 77px; height: 108px; }
+    #ad { position: absolute; left: 695px; top: 347px; width: 285px; }
+  </style>
+  <script src='../../scripts/pin.js'></script>
+  <script src='../../scripts/notify-bottom.js'></script>
+</head>
+<body>
+  <img alt='' src='image.png'>
+  <img id='banner' alt='' src='../ads/wired_gq_largebanner_multikeyboard_29.gif'>
+  <img id='ad' alt='' src='../ads/wired_gq_largesquare_multikeyboard_29.gif'>
+  <script>
+    function choose(target, list) { document.querySelector(target).src = list[Math.floor(Math.random() * list.length)] }
+    function addPath(list) { return list.map(function(entry) { return "../ads/" + entry }) }
+    choose('#banner', addPath(['cnt_smallerbanner_multikeyboards_29.gif', 'cnt_smallerbanner_multiscreen_29.gif', 'cnt_smallerbanner_slim_29.gif']))
+    choose('#ad', addPath(['cnt_smallersquare_multikeyboards_29.gif', 'cnt_smallersquare_multikeyscreen_29.gif', 'cnt_smallersquare_slim_29.gif']))
+    pin('#ad', 347, 2400)
+  </script>
+</body>
+</html>

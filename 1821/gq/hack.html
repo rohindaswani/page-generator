@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Test</title>
+    <style>
+      body { text-align: center; }
+      @media all and (orientation: portrait) {
+        .portrait { display: block; background-color: green; }
+        .landscape { display: none; background-color: blue; }
+      }
+      @media screen and (orientation: landscape) {
+        .portrait { display: none; background-color: green; }
+        .landscape { display: block; background-color: blue; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class='portrait'>
+      <h1>Portrait</h1>
+    </div>
+    <div class='landscape'>
+      <h1>Landscape</h1>
+    </div>
+  </body>
+</html>

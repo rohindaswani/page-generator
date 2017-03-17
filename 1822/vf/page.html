@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<meta charset='utf-8'>
+<title>Vanity Fair</title>
+<style>
+  @font-face {
+    font-family: VF-Didot-3;
+    src:url(http://www.vanityfair.com/fonts/VF-Didot-3/VF-Didot-3-Web-Semibold.woff2?#iefix) format('woff2'), url(http://www.vanityfair.com/fonts/VF-Didot-3/VF-Didot-3-Web-Semibold.woff) format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+  }
+  @font-face{
+    font-family: VF-Didot-3;
+    src: url(http://www.vanityfair.com/fonts/VF-Didot-3/VF-Didot-3-Web-Regular.woff2?#iefix) format('woff2'), url(http://www.vanityfair.com/fonts/VF-Didot-3/VF-Didot-3-Web-Regular.woff) format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+  }
+  body { margin: 0; padding: 0; width: 100%; margin: 0 auto; }
+  body > img { width: 100%; }
+
+  ul.slideshow { display: block; padding-left: unset; }
+  ul.slideshow > li { list-style-type: none; }
+  ul.slideshow { font-size: 20px; }
+  #slideshowMessage, #videoMessage { font-style: italic; font-weight: bold; font-family Verdana, sans-serif; color: red; text-align: center; }
+
+  .position { float: left; }
+  .carousel > p { margin-left: 100px; }
+  .carousel { font: 500 24px/1.25 "VF-Didot-3", Georgia, bTimes New Roman, times, serif; }
+  .carousel { width: 690px; margin: 0px auto; position: relative; }
+  ul.slideshow > li > p { font: 300 14px/1.43 VFSans,Helvetica; }
+  #current, .pseudolink { color: #ee2324; }
+  video { width: 690px; margin: 0px auto; display: block; }
+  #prev img { transform: rotate(180deg); }
+  .controls {
+    position: absolute;
+    top: 6em;
+    width: 690px;
+    bottom: 5px;
+  }
+  .controls button {
+    border: none;
+    width: 49%;
+    height: 75%;
+    background: none;
+    opacity: 0;
+    outline: none;
+  }
+  .controls button:hover { opacity: 1; }
+  .controls button:hover:disabled { opacity: 0; }
+  .controls button:hover img {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  #prev {
+    text-align: left;
+  }
+  #next {
+    float: right;
+    text-align: right;
+  }
+  #next.ready { opacity: 1; }
+</style>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+
+<img alt="" src="980_vf_part_1.png">
+
+<video height="347" width="616" controls autoplay poster="http://dwgyu36up6iuz.cloudfront.net/heru80fdn/image/upload/c_fill,d_placeholder_vanityfair.png,fl_progressive,g_face,h_450,q_80,w_800/v1473794021/vanityfair_vanity-fair-social-club-colton-haynes-and-skyler-samuels-on-acting-fashion-and-their-forever-friendship.jpg">
+  <source type="video/webm" src="http://dp8hsntg6do36.cloudfront.net/57d84fcffd2e61067b00004c/c618078f-bf19-4a9c-8c74-d113065f4cc1low.webm">
+  <source type="video/mp4" src="http://dp8hsntg6do36.cloudfront.net/57d84fcffd2e61067b00004c/c618078f-bf19-4a9c-8c74-d113065f4cc1low.mp4">
+</video>
+
+<img alt="" src="980_vf_part_2.png">
+
+<div class="carousel">
+  <div class="position"><span id='current'>?</span> of <span id='max'>?</span></div>
+  <p>Colton Haynes and Skyler Samuels Wear the Coach 1941 Fall 2016 Collection</p>
+
+  <div class="controls">
+    <button id='prev'>
+      <img alt="Prev" src="http://www.vanityfair.com/images/slideshow-arrow.svg">
+    </button>
+    <button id='next' class="ready">
+      <img alt="Next" src="http://www.vanityfair.com/images/slideshow-arrow.svg">
+    </button>
+  </div>
+
+  <ul class="slideshow" data-prev='#prev' data-next='#next' data-current-index='#current' data-max-index='#max'>
+    <li>
+      <img alt="" src="http://media.vanityfair.com/photos/57d16d93935c0f5d17c68639/master/h_590,c_limit/Coach1.gif">
+      <p>Colton wears the <span class="pseudolink">Coach 1941 Plaid Mashup Moto Jacket</span> and Skyler wears the <span class="pseudolink">Classic Varsity Jacket</span> with her own dress.</p>
+    </li>
+    <li>
+      <img alt="" src="http://media.vanityfair.com/photos/57d16d9f66baeedb35acdacf/master/h_590,c_limit/Coach_690X460_090716_a.jpg">
+      <p>Colton wears the <span class="pseudolink">Coach 1941 Washed Leather Aviator Bomber Jacket</span> and Skyler wears the <span class="pseudolink">Dress with Ruffles</span> with the <span class="pseudolink">Suede Western Rivets Saddle Bag 17</span>.</p>
+    </li>
+    <li>
+      <img alt="" src="http://media.vanityfair.com/photos/57d16da966baeedb35acdad0/master/h_590,c_limit/Coach2.gif">
+      <p>Colton wears the <span class="pseudolink">Coach 1941 Plaid Mashup Moto Jacket</span> and Skyler wears the <span class="pseudolink">Classic Varsity Jacket</span> with her own dress and the <span class="pseudolink">Rogue Bag in Glovetanned Pebble Leather</span>.</p>
+    </li>
+    <li>
+      <img alt="" src="http://media.vanityfair.com/photos/57d16da4935c0f5d17c6863a/master/h_590,c_limit/Coach5.gif">
+      <p>Colton wears the <span class="pseudolink">Coach 1941 Rexy Sweater</span> and Skyler wears the <span class="pseudolink">Suede Jacket with Studs</span> and the <span class="pseudolink">A-Line Skirt with Studs</span>.</p>
+    </li>
+    <li>
+      <img alt="" src="http://media.vanityfair.com/photos/57d16db1935c0f5d17c6863b/master/h_590,c_limit/Coach_690X460_090716_b.jpg">
+      <p>Syler wears the <span class="pseudolink">Coach 1941 Dress with Ruffles</span> with the <span class="pseudolink">Suede Western Rivets Saddle Bag 17</span> and <span class="pseudolink">Chelsea Boot</span>. Colton wears the <span class="pseudolink">Rexy Sweater</span> with the <span class="pseudolink">Patchwork c210 High Top Sneaker</span>.</p>
+    </li>
+    <li>
+      <img alt="" src="http://media.vanityfair.com/photos/57d16db4672442710750f8ff/master/h_590,c_limit/Coach_690X460_090716_c.jpg">
+      <p>Skyler wears the <span class="pseudolink">Coach 1941 Western Shirt</span> and the <span class="pseudolink">Western Embroidery Bag</span> with her own jeans and boots. She also wears the <span class="pseudolink">Suede Jacket</span> and <span class="pseudolink">A-Line Skirt with Studs</span> with the <span class="pseudolink">Chelsea Boot</span> and <span class="pseudolink">Embellished Tea Rose Applique Dinky Crossbody bag</span>. Colton wears the <span class="pseudolink">Coach 1941 Plaid Zip Shirt</span> with the <span class="pseudolink">Gotham Backpack</span> and <span class="pseudolink">Patchwork c210 High Top Sneaker</span>.</p>
+    </li>
+    <li>
+      <img alt="" src="http://media.vanityfair.com/photos/57d16dc566baeedb35acdad1/master/h_590,c_limit/Coach6.gif">
+      <p>Colton wears the <span class="pseudolink">Coach 1941 Plaid Mashup Moto Jacket</span> with <span class="pseudolink">Patchwork c210 High Top Sneakers</span> and the <span class="pseudolink">Gotham Backpack</span>. Skyler wears the <span class="pseudolink">Classic Varsity Jacket</span> with her own dress.</p>
+    </li>
+    <li>
+      <img alt="" src="http://media.vanityfair.com/photos/57d16dbb935c0f5d17c6863c/master/h_590,c_limit/Coach3.gif">
+      <p>Skyler wears the <span class="pseudolink">Coach 1941 Dress with Ruffles</span> with the <span class="pseudolink">Suede Western Rivets Saddle Bag 17</span>.</p>
+    </li>
+    <li>
+      <img alt="" src="http://media.vanityfair.com/photos/57d16dca66baeedb35acdad2/master/h_590,c_limit/Coach_690X460_090716_d.jpg">
+      <p>Colton wears the <span class="pseudolink">Coach 1941 Plaid Mashup Moto Jacket</span> and the <span class="pseudolink">Gotham Backpack</span>. Skyler wears the <span class="pseudolink">Classic Varsity Jacket</span> with her own dress.</p>
+    </li>
+    <li>
+      <img alt="" src="http://media.vanityfair.com/photos/57d16ebd935c0f5d17c6863f/master/h_590,c_limit/Coach7.gif">
+      <p>Colton wears the <span class="pseudolink">Coach 1941 Plaid Zip Shirt</span> with the <span class="pseudolink">Gotham Backpack</span>. Skyler wears the <span class="pseudolink">Coach 1941 Western Shirt</span> and the <span class="pseudolink">Western Embroidery Bag</span> with her own jeans.</p>
+    </li>
+    <li>
+      <img alt="" src="http://media.vanityfair.com/photos/57d16ebf66baeedb35acdad3/master/h_590,c_limit/Coach10.gif">
+      <p>Colton wears the <span class="pseudolink">Coach 1941 Plaid Mashup Moto Jacket</span> with <span class="pseudolink">Patchwork c210 High Top Sneakers</span> and the <span class="pseudolink">Gotham Backpack</span>. Skyler wears the <span class="pseudolink">Classic Varsity Jacket</span> with her own dress and the <span class="pseudolink">Western Rivets Rogue Bag in Pebble Leather</span>.</p>
+    </li>
+  </ul>
+</div>
+
+<img alt="" src="980_vf_part_3.png">
+<footer>
+  <p id='videoMessage'>Please view the entire video at the top of the web page.</p>
+  <p id='slideshowMessage'>Please view the entire slide show at the bottom of the web page.</p>
+</footer>
+<script src="../../scripts/slideshow.js"></script>
+<script>
+  var slideshow = document.querySelector('ul.slideshow');
+  function handler(event) {
+    document.getElementById('next').classList.remove("ready");
+    console.log("change", event.detail.page);
+    slideshow.removeEventListener('change', handler);
+  }
+  slideshow.addEventListener('change', handler);
+
+  var bottomTrigger = new Promise(function(resolve, reject) {
+    var armed = true;
+    window.onscroll = function(event) {
+      var y = ('scrollY' in window) ? window.scrollY : document.documentElement.scrollTop;
+      if (window.innerHeight + y + 12 >= document.body.offsetHeight && armed) {
+        resolve();
+        armed = false;
+      }
+    }
+  });
+
+  var slideshowTrigger = new Promise(function(resolve, reject) {
+    var armed = true;
+    document.querySelector('ul.slideshow').addEventListener('change', function(event) {
+      if (armed && event.detail.page === event.detail.total - 1) {
+        armed = false;
+        resolve();
+      }
+    });
+  }).then(function() {
+    document.getElementById('slideshowMessage').remove();
+  });
+
+  var videoTrigger = new Promise(function(resolve, reject) {
+    var armed = true;
+    document.querySelector('video').addEventListener('ended', function(event) {
+      if (armed) {
+        armed = false;
+        resolve();
+      }
+    });
+  }).then(function() {
+    document.getElementById('videoMessage').remove();
+  });
+
+  Promise.all([bottomTrigger, slideshowTrigger, videoTrigger]).then(function() {
+    window.parent.postMessage('final-page', '*');
+  });
+</script>

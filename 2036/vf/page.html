@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<meta charset='utf-8'>
+<title>Vanity Fair</title>
+<style>
+  @font-face {
+    font-family: VF-Didot-3;
+    src:url(http://www.vanityfair.com/fonts/VF-Didot-3/VF-Didot-3-Web-Semibold.woff2?#iefix) format('woff2'), url(http://www.vanityfair.com/fonts/VF-Didot-3/VF-Didot-3-Web-Semibold.woff) format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+  }
+  @font-face{
+    font-family: VF-Didot-3;
+    src: url(http://www.vanityfair.com/fonts/VF-Didot-3/VF-Didot-3-Web-Regular.woff2?#iefix) format('woff2'), url(http://www.vanityfair.com/fonts/VF-Didot-3/VF-Didot-3-Web-Regular.woff) format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+  }
+
+  body { margin: 0; padding: 0; width: 100%; margin: 0 auto; }
+  body > img { width: 100%; }
+  #side-ad { position: absolute; left: 75%; top: 115vw; width: 24vw; }
+
+  ul.slideshow { display: block; padding-left: unset; }
+  ul.slideshow > li { list-style-type: none; }
+  ul.slideshow { font-size: 20px; }
+  #slideshowMessage { font-style: italic; font-weight: bold; font-family Verdana, sans-serif; color: red; text-align: center; }
+
+  .carousel > p { margin-left: 100px; }
+  .carousel { font: 500 24px/1.25 "VF-Didot-3", Georgia, bTimes New Roman, times, serif; }
+  .carousel { width: 690px; margin: 0px 40px; position: relative; }
+  ul.slideshow > li > p { font: 300 14px/1.43 VFSans,Helvetica; }
+  #prev img { transform: rotate(180deg); }
+  .controls {
+    position: absolute;
+    top: 2em;
+    right: 0.25em;
+    width: 690px;
+    bottom: 5px;
+  }
+  .controls button {
+    border: none;
+    width: 49%;
+    height: 75%;
+    background: none;
+    opacity: 0;
+    outline: none;
+  }
+  /*.controls button:hover { opacity: 1; }*/
+  /*.controls button:hover:disabled { opacity: 0; }*/
+  .controls button:hover img {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  #prev {
+    text-align: left;
+  }
+  #next {
+    float: right;
+    text-align: right;
+  }
+  #next.ready { opacity: 1; }
+  .slideshow-index {
+    margin-left: 11vw;
+    margin-top: -5vw;
+    font: 500 22px/1.25 "VF-Didot-3", Georgia, bTimes New Roman, times, serif;
+    font-size: 2.7vw;
+    font-weight: 200;
+    color: gray;
+    font-style: italic;
+  }
+  .slideshow-index .index {
+    color: red;
+  }
+  ul.slideshow > li {
+    text-align: center;
+  }
+</style>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+
+<img alt="" src="top-image.png">
+<img alt="" id="side-ad" src="../ads/side_ad_1.gif">
+
+<div class="slideshow-index">
+  <span class="index"></span>
+  <span class="text"></span>
+
+</div>
+
+<div class="carousel">
+  <div class="controls">
+    <button id='prev' class="not-ready">
+      <img alt="Prev" src="http://www.vanityfair.com/images/slideshow-arrow.svg">
+    </button>
+    <button id='next' class="ready">
+      <img alt="Next" src="http://www.vanityfair.com/images/slideshow-arrow.svg">
+    </button>
+  </div>
+
+  <ul class="slideshow" data-prev='#prev' data-next='#next' data-current-index='#current' data-max-index='#max'>
+    <li>
+      <img alt="" src="slideshow/slideshow_1.jpg">
+      <img alt="" src="slideshow/description_1.png">
+    </li>
+    <li>
+      <img alt="" src="slideshow/slideshow_2.jpg">
+      <img alt="" src="slideshow/description_2.png">
+    </li>
+    <li>
+      <img alt="" src="slideshow/slideshow_3.png">
+      <img alt="" src="slideshow/description_3.png">
+    </li>
+    <li>
+      <img alt="" src="slideshow/slideshow_4.jpg">
+      <img alt="" src="slideshow/description_4.png">
+    </li>
+    <li>
+      <img alt="" src="slideshow/slideshow_5.jpg">
+      <img alt="" src="slideshow/description_5.png">
+    </li>
+    <li>
+      <img alt="" src="slideshow/slideshow_6.jpg">
+      <img alt="" src="slideshow/description_6.png">
+    </li>
+    <li>
+      <img alt="" src="slideshow/slideshow_7.jpg">
+      <img alt="" src="slideshow/description_7.png">
+    </li>
+    <li>
+      <img alt="" src="slideshow/slideshow_8.jpg">
+      <img alt="" src="slideshow/description_8.png">
+    </li>
+    <li>
+      <img alt="" src="slideshow/slideshow_9.jpg">
+      <img alt="" src="slideshow/description_9.png">
+    </li>
+    <li>
+      <img alt="" src="slideshow/slideshow_10.jpg">
+      <img alt="" src="slideshow/description_10.png">
+    </li>
+    <li>
+      <img alt="" src="slideshow/slideshow_11.jpg">
+      <img alt="" src="slideshow/description_11.png">
+    </li>
+    <li>
+      <img alt="" src="slideshow/slideshow_12.jpg">
+      <img alt="" src="slideshow/description_12.png">
+    </li>
+  </ul>
+
+</div>
+<img alt="" src="bottom-image.png">
+
+
+<footer>
+  <p id='slideshowMessage'>Please view the entire slide show at the bottom of the web page.</p>
+</footer>
+<script src="../../scripts/slideshow.js"></script>
+<script src="../../scripts/pin-viewer1.js"></script>
+<script src="../../scripts/randomize.js"></script>
+<script>
+  var slideshow = document.querySelector('ul.slideshow');
+  function handler(event) {
+    document.getElementById('next').classList.remove("ready");
+    slideshow.removeEventListener('change', handler);
+  }
+  slideshow.addEventListener('change', handler);
+
+  var bottomTrigger = new Promise(function(resolve, reject) {
+    var armed = true;
+    window.onscroll = function(event) {
+      var y = ('scrollY' in window) ? window.scrollY : document.documentElement.scrollTop;
+      if (window.innerHeight + y + 12 >= document.body.offsetHeight && armed) {
+        resolve();
+        armed = false;
+      }
+    }
+  });
+
+  var slideshowTrigger = new Promise(function(resolve, reject) {
+    var armed = true;
+    document.querySelector('ul.slideshow').addEventListener('change', function(event) {
+      if (armed && event.detail.page === event.detail.total - 1) {
+        armed = false;
+        resolve();
+      }
+    });
+  }).then(function() {
+    document.getElementById('slideshowMessage').remove();
+  });
+
+  Promise.all([bottomTrigger, slideshowTrigger]).then(function() {
+    window.parent.postMessage('final-page', '*');
+  });
+
+  var nextButton = document.querySelector('#next');
+  var prevButton = document.querySelector('#prev');
+  var slideShowIndex = document.querySelector('.slideshow-index');
+  var defaultIndex = 1;
+  slideShowIndex.innerHTML = "<span style='color:red'> 1 </span> of 12";
+  nextButton.addEventListener('click', function(e) {
+    defaultIndex++;
+    slideShowIndex.innerHTML = "<span style='color:red'>" + defaultIndex + "</span> of 12";
+    checkButtons();
+  });
+  prevButton.addEventListener('click', function(e) {
+    defaultIndex--;
+    slideShowIndex.innerHTML = "<span style='color:red'>" + defaultIndex + "</span> of 12";
+    checkButtons();
+  });
+
+
+  function choose(target, list) { target.src = list[Math.floor(Math.random() * list.length)] }
+  function addPath(list) { return list.map(function(entry) { return "../ads/" + entry }) }
+  choose(document.querySelector('#side-ad'), addPath(['side_ad_1.gif', 'side_ad_2.gif', 'side_ad_3.gif']));
+//  pin('#side-ad', 400, 11000);
+
+  var ad_path = "../ads/";
+  var side_ads = [
+    { url: 'side_ad_1.gif', duration: 9000},
+    { url: 'side_ad_2.gif', duration: 9000},
+    { url: 'side_ad_3.gif', duration: 9000}
+  ];
+  randomizeAds('#side-ad', ad_path, side_ads);
+
+  function checkButtons() {
+    if ( 1 < defaultIndex && defaultIndex < 12) {
+      prevButton.style.opacity = 1;
+      nextButton.style.opacity = 1;
+    }
+    if ( defaultIndex == 1 ) {
+      nextButton.style.opacity = 1;
+      prevButton.style.opacity = 0;
+    }
+    if (defaultIndex == 12) {
+      nextButton.style.opacity = 0;
+      prevButton.style.opacitu = 1;
+    }
+  }
+
+</script>

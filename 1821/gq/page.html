@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GQ</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <style>
+    body { margin: 0; padding: 0; width: 100%; margin: 0 auto; }
+    .page { width: 100%; }
+    .ad { margin-left: 5%; width: 90%; }
+
+    @media all and (orientation: portrait) {
+      .portrait { display: block; background-color: green; }
+      .landscape { display: none; background-color: blue; }
+    }
+    @media all and (orientation: landscape) {
+      .portrait { display: none; background-color: green; }
+      .landscape { display: block; background-color: blue; }
+    }
+  </style>
+</head>
+<body>
+  <div class='portrait'>
+    <h1>Portrait</h1>
+    <img class='page' alt='' src='portrait-0-0.png'>
+    <img class='ad' alt='' src='../ads/jaguar.gif'>
+    <img class='page' alt='' src='portrait-0-2.png'>
+    <img class='ad' alt='' src='../ads/jaguar.gif'>
+    <img class='page' alt='' src='portrait-0-4.png'>
+    <img class='ad' alt='' src='../ads/bottom-jaguar.png'>
+    <img class='page' alt='' src='portrait-0-6.png'>
+  </div>
+  <div class='landscape'>
+    <h1>Landscape</h1>
+    <img class='page' alt='' src='landscape-00-00.png'>
+    <img class='page' alt='' src='landscape-00-02.png'>
+    <img class='ad' alt='' src='../ads/jaguar.gif'>
+    <img class='page' alt='' src='landscape-00-03.png'>
+    <img class='page' alt='' src='landscape-00-05.png'>
+    <img class='page' alt='' src='landscape-00-07.png'>
+    <img class='ad' alt='' src='../ads/jaguar.gif'>
+    <img class='page' alt='' src='landscape-00-09.png'>
+    <img class='page' alt='' src='landscape-00-10.png'>
+    <img class='ad' alt='' src='../ads/bottom-jaguar.png'>
+    <img class='page' alt='' src='landscape-00-12.png'>
+  </div>
+</body>
+</html>

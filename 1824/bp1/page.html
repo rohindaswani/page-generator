@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <title> Bon Appetite </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <style>
+      body { margin: 0; padding: 0; width: 980px; margin: 0 auto; }
+      #background { width: 980px; }
+      #top-image { display: block; margin: auto; padding: 15px; }
+      #ad { position: absolute; left: 680px; width: 245px; }
+    </style>
+    <script src="../scripts/pin.js"></script>
+    <script src="../scripts/notify-bottom.js"></script>
+  </head>
+  <body>
+    <img alt="" id="top-image" src="#">
+    <img alt="" id="background" src="image.png" >
+    <img alt="" id="ad" src="#">
+    <script>
+      function choose(target, list) { document.querySelector(target).src = list[Math.floor(Math.random() * list.length)] }
+      function addPathTopImage(list) { return list.map(function(entry) { return "../topImages/" + entry }) }
+      function addPathAdsImage(list) { return list.map(function(entry) { return "../ads/" + entry }) }
+      if (Math.random() < 0.2) {
+        document.querySelector('#top-image').src = "../topImages/top_image_1.jpg";
+        document.querySelector('#ad').src = "../ads/wired_side_image.gif";
+      }
+      else {
+        choose('#top-image', addPathTopImage(['bp_top_image_1.gif', 'bp_top_image_2.gif']));
+        choose('#ad', addPathAdsImage(['bp_ad_image_1.gif', 'bp_ad_image_2.gif']));
+      }
+      pin('#ad', 350, 6050);
+    </script>
+  </body>
+</html>

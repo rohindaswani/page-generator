@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>W Coach 2</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { zoom: 40%; }
+    .iphone {
+      display: inline-block;
+      background-image: url(../images/iphone_frame.png);
+      min-width: 925px;
+      max-width: 925px;
+      width: 925px;
+      height: 1837px;
+      margin-top: 0px;
+      padding-top: 222px;
+      padding-left: 70px;
+      padding-right: 70px;
+    }
+    .content {
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      border-width: 0;
+      margin: 0;
+      padding: 0;
+    }
+    .page1 > * {
+      transition: 0.5s;
+      transform: translate(0);
+    }
+    .page2 > * {
+      transition: 0.5s;
+      transform: translate(-100%);
+    }
+    .page3 > * {
+      transition: 0.5s;
+      transform: translate(-200%);
+    }
+    video {
+      background-image: url(page_2_video_2.png);
+      background-size: cover;
+      padding-top: 223px;
+      padding-bottom: 390px;
+      width: 100%;
+    }
+  img, video { border-width: 0; margin-left: 0; margin-right: 0; padding-left: 0; padding-right: 0; }
+  </style>
+</head>
+<body>
+  <div class='iphone'>
+    <div class='content page1'>
+      <img id='p1' alt='' src='coach_page_1.png'><!--
+      --><video poster='video_2_poster.png' src='https://talaria-production.s3.amazonaws.com/uploads/238de3cb-455a-454f-a0c7-0cffb24cf041/w_2_video_n.mp4'></video><!--
+      --><img id='p3' alt='' src='coach_page_3.png'>
+    </div>
+  </div>
+  <script>
+    var content = document.querySelector('.content');
+    var timer;
+    var armed = true;
+    function setPage(n) {
+      for (var i = 1; i <= 3; i++) content.classList.remove("page" + i);
+      content.classList.add("page" + n);
+      if (timer) clearTimeout(timer);
+      timer = undefined;
+      if (n == 1) timer = setTimeout(function() { setPage(2); }, 6000);
+      if (n == 2) document.querySelector('video').play();
+      if (n == 3) {
+        if (armed) window.parent.postMessage('final-page', '*');
+        armed = false;
+        timer = setTimeout(function() { setPage(1); }, 8000);
+      }
+    }
+    document.querySelector('#p1').addEventListener('click', function(event) { setPage(2); });
+    document.querySelector('video').addEventListener('ended', function(event) { setPage(3); });
+    document.querySelector('#p3').addEventListener('click', function(event) { setPage(1); });
+    setPage(1);
+  </script>
+</body>
+</html>

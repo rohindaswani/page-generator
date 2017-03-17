@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<meta charset='utf-8'>
+<title>Vogue</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha256-AIodEDkC8V/bHBkfyxzolUMw57jeQ9CauwhVW6YJ9CA=" crossorigin="anonymous" />
+<style>
+  ul.slideshow { display: block; padding-left: unset; }
+  ul.slideshow > li { text-align: center; list-style-type: none; }
+  .carousel { width: 616px; margin: 0px auto; }
+  .position { font-size: 35px; }
+  .carousel button { font-size: 25px; border: none; border-radius: 35px; }
+  .controls { float: right; }
+  .controls button { background-color: #333; color: white; }
+  .controls button { outline-style: none; transition-delay: 0s; transition-duration: 0.4s; transition-property: background-color; transition-timing-function: ease; }
+  .controls button:hover { background-color: #a60505; }
+  .controls button:disabled { visibility: hidden; }
+  #slideShowMessage { font-style: italic; font-weight: bold; font-family Verdana, sans-serif; color: red; text-align: center; }
+  body { margin: 0; padding: 0; width: 100%; margin: 0 auto; }
+  body > img { width: 100%; }
+</style>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+
+<img alt="" src='980_Vogue_Part_1.png'>
+<div class='carousel'>
+  <div class="controls">
+    <button id='prev'><i class="fa fa-arrow-left"></i></button>
+    <button id='next'><i class="fa fa-arrow-right"></i></button>
+  </div>
+  <p class="position"><span id='current'>?</span> / <span id='max'>?</span></p>
+
+  <ul class='slideshow' data-prev='#prev' data-next='#next' data-current-index='#current' data-max-index='#max'>
+    <li>
+      <picture data-src="http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/01-grace-coach.jpg">
+        <source srcset="http://media.vogue.com/r/h_480,w_660//wp-content/uploads/2016/09/14/01-grace-coach.jpg, http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/01-grace-coach.jpg 2x" media="(min-width: 1260px)">
+        <source srcset="http://media.vogue.com/r/h_480,w_480//wp-content/uploads/2016/09/14/01-grace-coach.jpg, http://media.vogue.com/r/h_960,w_960//wp-content/uploads/2016/09/14/01-grace-coach.jpg 2x" media="(min-width: 960px)">
+        <source srcset="http://media.vogue.com/r/h_480,w_660//wp-content/uploads/2016/09/14/01-grace-coach.jpg, http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/01-grace-coach.jpg 2x" media="(min-width: 760px)">
+        <source srcset="http://media.vogue.com/r/h_450,w_390//wp-content/uploads/2016/09/14/01-grace-coach.jpg, http://media.vogue.com/r/h_900,w_780//wp-content/uploads/2016/09/14/01-grace-coach.jpg 2x" media="(min-width: 450px)">
+        <source srcset="http://media.vogue.com/r/h_320,w_280//wp-content/uploads/2016/09/14/01-grace-coach.jpg, http://media.vogue.com/r/h_640,w_560//wp-content/uploads/2016/09/14/01-grace-coach.jpg 2x">
+        <img src="http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/01-grace-coach.jpg" srcset="http://media.vogue.com/r/h_320,w_280//wp-content/uploads/2016/09/14/01-grace-coach.jpg" alt="">
+      </picture>
+    </li>
+    <li>
+      <picture data-src="http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/02-grace-coach.jpg">
+        <source srcset="http://media.vogue.com/r/h_480,w_660//wp-content/uploads/2016/09/14/02-grace-coach.jpg, http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/02-grace-coach.jpg 2x" media="(min-width: 1260px)">
+        <source srcset="http://media.vogue.com/r/h_480,w_480//wp-content/uploads/2016/09/14/02-grace-coach.jpg, http://media.vogue.com/r/h_960,w_960//wp-content/uploads/2016/09/14/02-grace-coach.jpg 2x" media="(min-width: 960px)">
+        <source srcset="http://media.vogue.com/r/h_480,w_660//wp-content/uploads/2016/09/14/02-grace-coach.jpg, http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/02-grace-coach.jpg 2x" media="(min-width: 760px)">
+        <source srcset="http://media.vogue.com/r/h_450,w_390//wp-content/uploads/2016/09/14/02-grace-coach.jpg, http://media.vogue.com/r/h_900,w_780//wp-content/uploads/2016/09/14/02-grace-coach.jpg 2x" media="(min-width: 450px)">
+        <source srcset="http://media.vogue.com/r/h_320,w_280//wp-content/uploads/2016/09/14/02-grace-coach.jpg, http://media.vogue.com/r/h_640,w_560//wp-content/uploads/2016/09/14/02-grace-coach.jpg 2x">
+        <img src="http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/02-grace-coach.jpg" srcset="http://media.vogue.com/r/h_320,w_280//wp-content/uploads/2016/09/14/02-grace-coach.jpg" alt="">
+      </picture>
+    </li>
+    <li>
+      <picture data-src="http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/03-grace-coach.jpg">
+        <source srcset="http://media.vogue.com/r/h_480,w_660//wp-content/uploads/2016/09/14/03-grace-coach.jpg, http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/03-grace-coach.jpg 2x" media="(min-width: 1260px)">
+        <source srcset="http://media.vogue.com/r/h_480,w_480//wp-content/uploads/2016/09/14/03-grace-coach.jpg, http://media.vogue.com/r/h_960,w_960//wp-content/uploads/2016/09/14/03-grace-coach.jpg 2x" media="(min-width: 960px)">
+        <source srcset="http://media.vogue.com/r/h_480,w_660//wp-content/uploads/2016/09/14/03-grace-coach.jpg, http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/03-grace-coach.jpg 2x" media="(min-width: 760px)">
+        <source srcset="http://media.vogue.com/r/h_450,w_390//wp-content/uploads/2016/09/14/03-grace-coach.jpg, http://media.vogue.com/r/h_900,w_780//wp-content/uploads/2016/09/14/03-grace-coach.jpg 2x" media="(min-width: 450px)">
+        <source srcset="http://media.vogue.com/r/h_320,w_280//wp-content/uploads/2016/09/14/03-grace-coach.jpg, http://media.vogue.com/r/h_640,w_560//wp-content/uploads/2016/09/14/03-grace-coach.jpg 2x">
+        <img src="http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/03-grace-coach.jpg" srcset="http://media.vogue.com/r/h_320,w_280//wp-content/uploads/2016/09/14/03-grace-coach.jpg" alt="">
+      </picture>
+    </li>
+    <li>
+      <picture data-src="http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/04-grace-coach.jpg">
+        <source srcset="http://media.vogue.com/r/h_480,w_660//wp-content/uploads/2016/09/14/04-grace-coach.jpg, http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/04-grace-coach.jpg 2x" media="(min-width: 1260px)">
+        <source srcset="http://media.vogue.com/r/h_480,w_480//wp-content/uploads/2016/09/14/04-grace-coach.jpg, http://media.vogue.com/r/h_960,w_960//wp-content/uploads/2016/09/14/04-grace-coach.jpg 2x" media="(min-width: 960px)">
+        <source srcset="http://media.vogue.com/r/h_480,w_660//wp-content/uploads/2016/09/14/04-grace-coach.jpg, http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/04-grace-coach.jpg 2x" media="(min-width: 760px)">
+        <source srcset="http://media.vogue.com/r/h_450,w_390//wp-content/uploads/2016/09/14/04-grace-coach.jpg, http://media.vogue.com/r/h_900,w_780//wp-content/uploads/2016/09/14/04-grace-coach.jpg 2x" media="(min-width: 450px)">
+        <source srcset="http://media.vogue.com/r/h_320,w_280//wp-content/uploads/2016/09/14/04-grace-coach.jpg, http://media.vogue.com/r/h_640,w_560//wp-content/uploads/2016/09/14/04-grace-coach.jpg 2x">
+        <img src="http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/04-grace-coach.jpg" srcset="http://media.vogue.com/r/h_320,w_280//wp-content/uploads/2016/09/14/04-grace-coach.jpg" alt="">
+      </picture>
+    </li>
+    <li>
+      <picture data-src="http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/05-grace-coach.jpg">
+        <source srcset="http://media.vogue.com/r/h_480,w_660//wp-content/uploads/2016/09/14/05-grace-coach.jpg, http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/05-grace-coach.jpg 2x" media="(min-width: 1260px)">
+        <source srcset="http://media.vogue.com/r/h_480,w_480//wp-content/uploads/2016/09/14/05-grace-coach.jpg, http://media.vogue.com/r/h_960,w_960//wp-content/uploads/2016/09/14/05-grace-coach.jpg 2x" media="(min-width: 960px)">
+        <source srcset="http://media.vogue.com/r/h_480,w_660//wp-content/uploads/2016/09/14/05-grace-coach.jpg, http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/05-grace-coach.jpg 2x" media="(min-width: 760px)">
+        <source srcset="http://media.vogue.com/r/h_450,w_390//wp-content/uploads/2016/09/14/05-grace-coach.jpg, http://media.vogue.com/r/h_900,w_780//wp-content/uploads/2016/09/14/05-grace-coach.jpg 2x" media="(min-width: 450px)">
+        <source srcset="http://media.vogue.com/r/h_320,w_280//wp-content/uploads/2016/09/14/05-grace-coach.jpg, http://media.vogue.com/r/h_640,w_560//wp-content/uploads/2016/09/14/05-grace-coach.jpg 2x">
+        <img src="http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/05-grace-coach.jpg" srcset="http://media.vogue.com/r/h_320,w_280//wp-content/uploads/2016/09/14/05-grace-coach.jpg" alt="">
+      </picture>
+    </li>
+    <li>
+      <picture data-src="http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/06-grace-coach.jpg">
+        <source srcset="http://media.vogue.com/r/h_480,w_660//wp-content/uploads/2016/09/14/06-grace-coach.jpg, http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/06-grace-coach.jpg 2x" media="(min-width: 1260px)">
+        <source srcset="http://media.vogue.com/r/h_480,w_480//wp-content/uploads/2016/09/14/06-grace-coach.jpg, http://media.vogue.com/r/h_960,w_960//wp-content/uploads/2016/09/14/06-grace-coach.jpg 2x" media="(min-width: 960px)">
+        <source srcset="http://media.vogue.com/r/h_480,w_660//wp-content/uploads/2016/09/14/06-grace-coach.jpg, http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/06-grace-coach.jpg 2x" media="(min-width: 760px)">
+        <source srcset="http://media.vogue.com/r/h_450,w_390//wp-content/uploads/2016/09/14/06-grace-coach.jpg, http://media.vogue.com/r/h_900,w_780//wp-content/uploads/2016/09/14/06-grace-coach.jpg 2x" media="(min-width: 450px)">
+        <source srcset="http://media.vogue.com/r/h_320,w_280//wp-content/uploads/2016/09/14/06-grace-coach.jpg, http://media.vogue.com/r/h_640,w_560//wp-content/uploads/2016/09/14/06-grace-coach.jpg 2x">
+        <img src="http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/06-grace-coach.jpg" srcset="http://media.vogue.com/r/h_320,w_280//wp-content/uploads/2016/09/14/06-grace-coach.jpg" alt="">
+      </picture>
+    </li>
+    <li>
+      <picture data-src="http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/07-grace-coach.jpg">
+        <source srcset="http://media.vogue.com/r/h_480,w_660//wp-content/uploads/2016/09/14/07-grace-coach.jpg, http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/07-grace-coach.jpg 2x" media="(min-width: 1260px)">
+        <source srcset="http://media.vogue.com/r/h_480,w_480//wp-content/uploads/2016/09/14/07-grace-coach.jpg, http://media.vogue.com/r/h_960,w_960//wp-content/uploads/2016/09/14/07-grace-coach.jpg 2x" media="(min-width: 960px)">
+        <source srcset="http://media.vogue.com/r/h_480,w_660//wp-content/uploads/2016/09/14/07-grace-coach.jpg, http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/07-grace-coach.jpg 2x" media="(min-width: 760px)">
+        <source srcset="http://media.vogue.com/r/h_450,w_390//wp-content/uploads/2016/09/14/07-grace-coach.jpg, http://media.vogue.com/r/h_900,w_780//wp-content/uploads/2016/09/14/07-grace-coach.jpg 2x" media="(min-width: 450px)">
+        <source srcset="http://media.vogue.com/r/h_320,w_280//wp-content/uploads/2016/09/14/07-grace-coach.jpg, http://media.vogue.com/r/h_640,w_560//wp-content/uploads/2016/09/14/07-grace-coach.jpg 2x">
+        <img src="http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/07-grace-coach.jpg" srcset="http://media.vogue.com/r/h_320,w_280//wp-content/uploads/2016/09/14/07-grace-coach.jpg" alt="">
+      </picture>
+    </li>
+    <li>
+      <picture data-src="http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/08-grace-coach.jpg">
+        <source srcset="http://media.vogue.com/r/h_480,w_660//wp-content/uploads/2016/09/14/08-grace-coach.jpg, http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/08-grace-coach.jpg 2x" media="(min-width: 1260px)">
+        <source srcset="http://media.vogue.com/r/h_480,w_480//wp-content/uploads/2016/09/14/08-grace-coach.jpg, http://media.vogue.com/r/h_960,w_960//wp-content/uploads/2016/09/14/08-grace-coach.jpg 2x" media="(min-width: 960px)">
+        <source srcset="http://media.vogue.com/r/h_480,w_660//wp-content/uploads/2016/09/14/08-grace-coach.jpg, http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/08-grace-coach.jpg 2x" media="(min-width: 760px)">
+        <source srcset="http://media.vogue.com/r/h_450,w_390//wp-content/uploads/2016/09/14/08-grace-coach.jpg, http://media.vogue.com/r/h_900,w_780//wp-content/uploads/2016/09/14/08-grace-coach.jpg 2x" media="(min-width: 450px)">
+        <source srcset="http://media.vogue.com/r/h_320,w_280//wp-content/uploads/2016/09/14/08-grace-coach.jpg, http://media.vogue.com/r/h_640,w_560//wp-content/uploads/2016/09/14/08-grace-coach.jpg 2x">
+        <img src="http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/08-grace-coach.jpg" srcset="http://media.vogue.com/r/h_320,w_280//wp-content/uploads/2016/09/14/08-grace-coach.jpg" alt="">
+      </picture>
+    </li>
+    <li>
+      <picture data-src="http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/09-grace-coach.jpg">
+        <source srcset="http://media.vogue.com/r/h_480,w_660//wp-content/uploads/2016/09/14/09-grace-coach.jpg, http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/09-grace-coach.jpg 2x" media="(min-width: 1260px)">
+        <source srcset="http://media.vogue.com/r/h_480,w_480//wp-content/uploads/2016/09/14/09-grace-coach.jpg, http://media.vogue.com/r/h_960,w_960//wp-content/uploads/2016/09/14/09-grace-coach.jpg 2x" media="(min-width: 960px)">
+        <source srcset="http://media.vogue.com/r/h_480,w_660//wp-content/uploads/2016/09/14/09-grace-coach.jpg, http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/09-grace-coach.jpg 2x" media="(min-width: 760px)">
+        <source srcset="http://media.vogue.com/r/h_450,w_390//wp-content/uploads/2016/09/14/09-grace-coach.jpg, http://media.vogue.com/r/h_900,w_780//wp-content/uploads/2016/09/14/09-grace-coach.jpg 2x" media="(min-width: 450px)">
+        <source srcset="http://media.vogue.com/r/h_320,w_280//wp-content/uploads/2016/09/14/09-grace-coach.jpg, http://media.vogue.com/r/h_640,w_560//wp-content/uploads/2016/09/14/09-grace-coach.jpg 2x">
+        <img src="http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/09-grace-coach.jpg" srcset="http://media.vogue.com/r/h_320,w_280//wp-content/uploads/2016/09/14/09-grace-coach.jpg" alt="">
+      </picture>
+    </li>
+    <li>
+      <picture data-src="http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/10-grace-coach.jpg">
+        <source srcset="http://media.vogue.com/r/h_480,w_660//wp-content/uploads/2016/09/14/10-grace-coach.jpg, http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/10-grace-coach.jpg 2x" media="(min-width: 1260px)">
+        <source srcset="http://media.vogue.com/r/h_480,w_480//wp-content/uploads/2016/09/14/10-grace-coach.jpg, http://media.vogue.com/r/h_960,w_960//wp-content/uploads/2016/09/14/10-grace-coach.jpg 2x" media="(min-width: 960px)">
+        <source srcset="http://media.vogue.com/r/h_480,w_660//wp-content/uploads/2016/09/14/10-grace-coach.jpg, http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/10-grace-coach.jpg 2x" media="(min-width: 760px)">
+        <source srcset="http://media.vogue.com/r/h_450,w_390//wp-content/uploads/2016/09/14/10-grace-coach.jpg, http://media.vogue.com/r/h_900,w_780//wp-content/uploads/2016/09/14/10-grace-coach.jpg 2x" media="(min-width: 450px)">
+        <source srcset="http://media.vogue.com/r/h_320,w_280//wp-content/uploads/2016/09/14/10-grace-coach.jpg, http://media.vogue.com/r/h_640,w_560//wp-content/uploads/2016/09/14/10-grace-coach.jpg 2x">
+        <img src="http://media.vogue.com/r/h_960,w_1320//wp-content/uploads/2016/09/14/10-grace-coach.jpg" srcset="http://media.vogue.com/r/h_320,w_280//wp-content/uploads/2016/09/14/10-grace-coach.jpg" alt="">
+      </picture>
+    </li>
+  </ul>
+</div>
+<img alt="" src='980_Vogue_Part_2.png'>
+
+<footer>
+  <p id='slideShowMessage'>Please view the entire slide show at the top of the web page.</p>
+</footer>
+<script src="../../scripts/slideshow.js"></script>
+<script>
+  var bottomTrigger = new Promise(function(resolve, reject) {
+    var armed = true;
+    window.onscroll = function(event) {
+      var y = ('scrollY' in window) ? window.scrollY : document.documentElement.scrollTop;
+      if (window.innerHeight + y + 12>= document.body.offsetHeight && armed) {
+        resolve();
+        armed = false;
+      }
+    }
+  });
+
+  var slideshowTrigger = new Promise(function(resolve, reject) {
+    var armed = true;
+    document.querySelector('ul.slideshow').addEventListener('change', function(event) {
+      if (armed && event.detail.page === event.detail.total - 1) {
+        armed = false;
+        resolve();
+      }
+    });
+  }).then(function() {
+    document.getElementById('slideShowMessage').remove();
+  });
+
+  Promise.all([bottomTrigger, slideshowTrigger]).then(function() {
+    window.parent.postMessage('final-page', '*');
+  });
+</script>

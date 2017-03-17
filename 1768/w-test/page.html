@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <title> W </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <style>
+      * { margin: 0; padding: 0; }
+      body { font-size: 30.68px; margin-top: 30px; }
+      header { background-color: white; width: 100%; text-align: center; position: fixed; top: 0; }
+      header { z-index: 4; }
+      header > img:first-of-type { float: left; }
+      header > img:last-of-type { float: right; }
+      .hero-content { color: white; text-align: center; }
+      .hero-content { margin: 0 auto; padding: 5em 3em; max-width: 600px; }
+      .hero { position: relative; }
+      .hero .background { z-index: 1; }
+      .hero-content { position: relative; top: 30px; z-index: 2; }
+      .hero-content img { height: 2em; }
+
+      hr { margin: 20px auto; width: 30%; }
+      hr { border: 0 solid white; border-top-width: 1px; }
+      h1 {
+        font-family: "Fjalla One", arial, helvetica, sans-serif;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 1px;
+        font-size: 150%;
+      }
+      h2 {
+        font-family: Georgia, "Times New Roman", times, serif;
+        font-weight: normal;
+        line-height: 30px;
+        margin: 15px auto;
+        font-size: 60%;
+        max-width: 70%;
+      }
+      .page { width: 100%; }
+      .page { position: relative; z-index: 3; }
+      .hero .background {
+        position: fixed;
+        background-image: url(mobile.gif);
+        background-size: cover;
+        width: 100%;
+        height: calc(100% - 40px);
+      }
+      @media screen and (max-width: 767px) {
+        body { font-size: 4vw; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img alt="" src="top-image-left.png">
+      <img alt="" src="top-image-center.png">
+      <img alt="" src="top-image-right.png">
+    </header>
+    <div class="hero">
+      <div class="background"></div>
+      <div class="hero-content">
+        <h1>Ageless Encounters</h1>
+        <h2>Edie Parker founder Brett Heyman Talks Timeless Designs and Modern Women.</h2>
+        <hr>
+        <img alt="" src="slug.png">
+      </div>
+    </div>
+    <img class="page" alt="" src="image.png">
+    <script>
+      var armed = true;
+      var ref = document.querySelector('.page');
+      ref.addEventListener('load', function(event) {
+        window.onscroll = function (event) {
+          var y = ('scrollY' in window) ? window.scrollY : document.documentElement.scrollTop;
+          if (window.innerHeight + y >= ref.offsetHeight && armed) {
+            window.parent.postMessage('final-page', '*');
+            armed = false;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

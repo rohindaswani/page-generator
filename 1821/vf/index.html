@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Sample page</title>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <style>
+      body { margin: 0; padding: 0; width: 100%; margin: 0 auto; }
+      .content { width: 100%; }
+      .ad { margin-left: 5%; width: 90%; }
+
+      @media all and (orientation: portrait) {
+        .portrait { display: block; }
+        .landscape { display: none; }
+      }
+      @media all and (orientation: landscape) {
+        .portrait { display: none; }
+        .landscape { display: block; }
+      }
+
+      .hg-rotate { position: relative; }
+      .hg-rotate img { position: absolute; top: 0; left: 0; width: 100%; }
+      .hg-rotate img+img { opacity: 0; }
+      .hg-rotate img:last-of-type { transition: opacity 0.2s ease-out; }
+      .hg-rotate img.active { opacity: 1; transition: opacity 0.2s ease-in; }
+    </style>
+  </head>
+  <body>
+    <h1>Survey Page</h1>
+    <p>This is the survey page that hosts the content under test.</p>
+    <div class='portrait'>
+      <img class='content' alt='' src='portrait-0-0.png'>
+      <div class='ad hg-rotate'>
+        <img alt='' src='../ads/jaguar-1.png'>
+        <img alt='' src='../ads/jaguar-2.png'>
+        <img alt='' src='../ads/jaguar-3.png'>
+        <img alt='' src='../ads/jaguar-4.png'>
+        <img alt='' src='../ads/jaguar-5.png'>
+      </div>
+      <img class='content' alt='' src='portrait-0-2.png'>
+      <div class='ad hg-rotate'>
+        <img alt='' src='../ads/jaguar-1.png'>
+        <img alt='' src='../ads/jaguar-2.png'>
+        <img alt='' src='../ads/jaguar-3.png'>
+        <img alt='' src='../ads/jaguar-4.png'>
+        <img alt='' src='../ads/jaguar-5.png'>
+      </div>
+      <img class='content' alt='' src='portrait-0-4.png'>
+      <img class='ad' alt='' src='../ads/bottom-jaguar.png'>
+      <img class='content' alt='' src='portrait-0-6.png'>
+    </div>
+    <div class='landscape'>
+      <img class='content' alt='' src='landscape-0-0.png'>
+      <div class='ad hg-rotate'>
+        <img alt='' src='../ads/jaguar-1.png'>
+        <img alt='' src='../ads/jaguar-2.png'>
+        <img alt='' src='../ads/jaguar-3.png'>
+        <img alt='' src='../ads/jaguar-4.png'>
+        <img alt='' src='../ads/jaguar-5.png'>
+      </div>
+      <img class='content' alt='' src='landscape-0-2.png'>
+      <div class='ad hg-rotate'>
+        <img alt='' src='../ads/jaguar-1.png'>
+        <img alt='' src='../ads/jaguar-2.png'>
+        <img alt='' src='../ads/jaguar-3.png'>
+        <img alt='' src='../ads/jaguar-4.png'>
+        <img alt='' src='../ads/jaguar-5.png'>
+      </div>
+      <img class='content' alt='' src='landscape-0-4.png'>
+      <img class='ad' alt='' src='../ads/bottom-jaguar.png'>
+      <img class='content' alt='' src='landscape-0-6.png'>
+    </div>
+    <script src="../../scripts/rotate.js"></script>
+  </body>
+</html>

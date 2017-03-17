@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Demo </title>
+    <meta charset="utf-8">
+    <style>
+      .coupon { border: dashed brown 3px; padding: 30px 50px; padding-bottom: 10px; background: rgb(253, 249, 246); margin: 30px; color: rgb(122,153,44); font-family: sans-serif;
+      min-width: 800px; width: 800px; }
+      .coupon .logo { vertical-align: middle; }
+      .coupon > * { display: inline-block; }
+      .coupon a { color: inherit; }
+      .coupon main { width: 70%; margin-left: 80px; }
+      .coupon address { vertical-align: top; margin-top: 100px; font-size: 1.3em; color: black; font-style: normal; }
+      .coupon h1 { font-size: 1.5em; color: black; margin-left: 30px; }
+      .coupon .footer { display: block; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <p> This is a sample page </p>
+    <div class="coupon">
+      <img class="logo" src="logo.png">
+      <h1 class="coupon-info">
+        Coupon#: <span id="respondent-id">1234</span> Authorized: <time></time>
+      </h1>
+      <address>
+        <span id="respondent-name">Ron Howard</span><br>
+        <span id="respondent-address">3030 K Street</span><br>
+        <span id="respondent-city">Washington DC</span><br>
+        <span id="respondent-zipcode">20007</span><br>
+      </address>
+      <main class="image-text">
+        <p> Thank you for completing our survey. In appreciation of your help, this coupon can be used to get a 20% discount on <u>one order</u> for Thibaut or Anna French wallpaper and/or fabric on or before January 31, 2017. To redeem your coupon, please follow these instructions: </p>
+        <ul>
+          <li> If you have a direct account with Thibaut, please fax or e-mail a copy of this coupon along with your order to Thibaut’s Customer Service department who will apply the discount. The e-mail address is <a href="mailto:cs@ThibautDesign.com">cs@ThibautDesign.com</a>. </li>
+          <li> If you purchase Thibaut or Anna French products from one of our showrooms or other customers, they will honor the coupon and give you the discount on your order, and then they will send us the coupon so we can refund the discount they’ve given to you. </li>
+          <li> If you want to open a direct account with Thibaut, please e-mail us at <a href="mailto:SalesAdmin@ThibautDesign.com">SalesAdmin@ThibautDesign.com</a>. </li>
+        </ul>
+        <p> <u>TO OUR DISTRIBUTION PARTNERS</u>: Please honor this coupon and send it to us along with a copy of the order to which the discount was applied, so we can credit your account with a 20% discount on the items discounted.</p>
+        <p> This coupon may be redeemed on one order only on or before January 31, 2017. </p>
+      </main>
+      <div class="footer">
+        <img src="bottom.png">
+      </div>
+    </div>
+  <script>
+    var today = new Date();
+    var date = document.querySelector(".coupon time");
+    date.setAttribute('datetime', today.toISOString());
+    date.textContent = today.toLocaleString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+  </script>
+  </body>
+</html>

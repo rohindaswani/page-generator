@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Sample page</title>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <style>
+      div { text-align: center; }
+      iframe { width: 80%; height: 700px; }
+
+      @media screen and (max-width: 767px) {
+        iframe { width: 95%; height: 700px; }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Survey Page</h1>
+    <p>This is the survey page that hosts the content under test.</p>
+    <div>
+      <iframe src='page.html'></iframe>
+    </div>
+<script>
+window.onmessage = function(event) {
+  if (event.data === 'final-page') alert("bottom of scroll");
+}
+</script>
+  </body>
+</html>

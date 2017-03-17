@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <title> BA </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <style>
+      body { margin: 0; padding: 0; width: 980px; margin: 0 auto; }
+      #background { width: 980px; }
+      #ad { position: absolute; left: 675px; width: 245px; }
+      #top-ad { display: block; margin: auto; padding: 15px; }
+    </style>
+    <script src="../scripts/pin.js"></script>
+    <script src="../scripts/notify-bottom.js"></script>
+  </head>
+  <body>
+    <img alt="" id="top-ad" src="#">
+    <img alt="" id="background" src="image.png">
+    <img alt="" id="ad" src="#">
+    <script>
+      var side_ad_path = "../side_ads/";
+      var top_ad_path = "../top_ads/";
+
+      var side_ads = [
+        { url: 'side_ad_1.gif', duration: 10240},
+        { url: 'side_ad_2.gif', duration: 10240},
+        { url: 'side_ad_3.gif', duration: 10160},
+        { url: 'side_ad_4.gif', duration: 11840},
+        { url: 'side_ad_5.gif', duration: 9120},
+        { url: 'side_ad_6.gif', duration: 11040},
+        { url: 'side_ad_7.gif', duration: 11040}
+      ];
+
+      var top_ads = [
+        { url: 'top_ad_1.gif', duration: 4400},
+        { url: 'top_ad_2.gif', duration: 3840},
+        { url: 'top_ad_3.gif', duration: 3840},
+        { url: 'top_ad_4.gif', duration: 3840},
+        { url: 'top_ad_5.gif', duration: 3840}
+      ];
+
+      function randomizeAds(target, source, ads) {
+        function playRandomAd() {
+          ad = ads[Math.floor(Math.random() * ads.length)];
+          document.querySelector(target).src = source + ad.url;
+          setTimeout(playRandomAd, ad.duration);
+        }
+        playRandomAd();
+      }
+
+      randomizeAds('#ad', side_ad_path, side_ads);
+      randomizeAds('#top-ad', top_ad_path, top_ads);
+      pin('#ad', 290, 2300);
+    </script>
+  </body>
+</html>

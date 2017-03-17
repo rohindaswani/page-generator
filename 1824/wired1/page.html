@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <title> Wired </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <style>
+      body { margin: 0; padding: 0; width: 980px; margin: 0 auto; }
+      #background { width: 980px; }
+      #top-image { display: block; margin: auto; padding: 15px; }
+      #ad { position: absolute; left: 725px; width: 250px; }
+    </style>
+    <script src="../scripts/carousel.js"></script>
+    <script src="../scripts/pin.js"></script>
+    <script src="../scripts/notify-bottom.js"></script>
+  </head>
+  <body>
+    <img alt="" id="top-image" src="../topImages/top_image_1.jpg">
+    <img alt="" id="background" src="image.png">
+    <img alt="" id="ad" src="#">
+    <script>
+      document.querySelector('#ad').src = "../ads/wired_side_image.gif";
+      pin('#ad', 500, 4030);
+    </script>
+  </body>
+</html>

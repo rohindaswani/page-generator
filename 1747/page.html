@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Workout Quiz</title>
+    <style>
+      .slide { display: none; }
+      .slide.active { display: block; }
+
+      body > div {
+        text-align: center;
+      }
+
+      body {
+        width: 784px;
+      }
+
+      .question {
+        font-family: "ff-dagny-web-pro", sans-serif;
+        font-size: 15px;
+        text-align: left;
+      }
+      .caption { max-width: 250px; margin: 0 auto; font-family: "nimbus-sans-condensed", sans-serif; font-weight: bold; font-size: 23.4375px; }
+      #page2 .view { display: none; }
+      #page2 .view.active { display: block; }
+      #page2 button { display: inline-block; width: 50px; height: 50px; border: solid black 1px; border-radius: 50px; background: white; }
+      #page2 button:focus { outline: none; }
+      #page2 button.active { color: white; background: black; }
+      #page2 button:first-child { margin-right: 200px; }
+      #page2 button:last-child { margin-left: 200px; }
+
+      .tile { display: inline-block; }
+      .tile img { width: 384px; height: 384px; }
+      .tile:not(.active) img:first-child { display: none; }
+      .tile:not(.active) img { opacity: 0.5; }
+      .tile.active img:last-child { display: none; }
+
+      .title { font-size: 20px; font-weight: bold; }
+
+      svg { float: right; }
+      h2 { font-size: 23.4375px; }
+      .result { font-size: 16.875px; }
+    </style>
+  </head>
+  <body>
+    <div class='slide active' id='page1'>
+      <p class='question'>Looking to add a little pep in your workout step? Look no further! We've carefully constructed the perfect quiz to help you find the best workout that will get your heart rate pumping. Let's get started:</p>
+      <img alt="" src="P1A1_Fitbit_Header_710x450.gif">
+    </div>
+
+    <div class='slide' id='page2'>
+      <p class='question'>1. Be honest, how much do you enjoy working out? (Select 1, 5 or 10)</p>
+      <div class='slider'>
+        <button value='p2i1'>1</button>
+        <button value='p2i2' class='active'>5</button>
+        <button value='p2i3'>10</button>
+      </div>
+      <div id='p2i1' class='view'>
+        <img alt="" src="P2A1_Q1_Expression_1_272x272.gif">
+        <p class='caption'>Just about as much as a root canal.</p>
+      </div>
+      <div id='p2i2' class='view active'>
+        <img alt="" src="P2A2_Q1_Expression_5_272x272.gif">
+        <p class='caption'>I like working out but I hate the gym.</p>
+      </div>
+      <div id='p2i3' class='view'>
+        <img alt="" src="P2A3_Q1_Expression_10_272x272.gif">
+        <p class='caption'>Bring on triathalon #4.</p>
+      </div>
+    </div>
+    <script>
+      Array.prototype.forEach.call(document.querySelectorAll('#page2 button'), function(button) {
+        button.addEventListener('click', function(event) {
+          document.querySelector('#page2 .view.active').classList.remove('active');
+          document.querySelector('#page2 button.active').classList.remove('active');
+          event.target.classList.add('active');
+          document.getElementById(event.target.value).classList.add('active');
+        });
+      });
+    </script>
+
+    <div class='slide tileset' id='page3'>
+      <p class='question'>2. How do you handle stress?</p>
+      <div class='tile active'>
+        <img alt="" src="P3A1_Question_2_1_350x350.gif">
+        <img alt="" src="P3A2_Question_2_1_cover.png">
+      </div>
+      <div class='tile'>
+        <img alt="" src="P3B1_Question_2_2_350x350.gif">
+        <img alt="" src="P3B2_Question_2_2_cover.png">
+      </div>
+      <div class='tile'>
+        <img alt="" src="P3C1_Question_2_3_350x350.gif">
+        <img alt="" src="P3C2_Question_2_3_cover.png">
+      </div>
+      <div class='tile'>
+        <img alt="" src="P3D1_Question_2_4_350x350.gif">
+        <img alt="" src="P3D2_Question_2_4_cover.png">
+      </div>
+    </div>
+
+    <div class='slide tileset' id='page4'>
+      <p class='question'>3. What image best represents you at the gym?</p>
+      <div class='tile active'>
+        <img alt="" src="P4A1_Question_3_1_700x700.png">
+        <img alt="" src="P4A2_Question_3_1_700x700.png">
+      </div>
+      <div class='tile'>
+        <img alt="" src="P4B1_Question_3_2_700x700.png">
+        <img alt="" src="P4B2_Question_3_2_700x700.png">
+      </div>
+      <div class='tile'>
+        <img alt="" src="P4C1_Question_3_3_700x700.png">
+        <img alt="" src="P4C2_Question_3_3_700x700.png">
+      </div>
+      <div class='tile'>
+        <img alt="" src="P4D1_Question_3_4_700x700.png">
+        <img alt="" src="P4D2_Question_3_4_700x700.png">
+      </div>
+    </div>
+
+    <div class='slide tileset' id='page5'>
+      <p class='question'>4. Select your favorite workout activity.</p>
+      <div class='tile active'>
+        <img alt="" src="P5A1_Question_4_1_700x700.png">
+        <img alt="" src="P5A2_Question_4_1_700x700.png">
+      </div>
+      <div class='tile'>
+        <img alt="" src="P5B1_Question_4_2_700x700.png">
+        <img alt="" src="P5B2_Question_4_2_700x700.png">
+      </div>
+      <div class='tile'>
+        <img alt="" src="P5C1_Question_4_3_700x700.png">
+        <img alt="" src="P5C2_Question_4_3_700x700.png">
+      </div>
+      <div class='tile'>
+        <img alt="" src="P5D1_Question_4_4_700x700.png">
+        <img alt="" src="P5D2_Question_4_4_700x700.png">
+      </div>
+    </div>
+
+    <div class='slide tileset' id='page6'>
+      <p class='question'>5. Do you know how many calories you burn during a workout?</p>
+      <div class='tile active'>
+        <img alt="" src="P6A1_Question_5_1.png">
+        <img alt="" src="P6A2_Question_5_1.png">
+      </div>
+      <div class='tile'>
+        <img alt="" src="P6B1_Question_5_2.png">
+        <img alt="" src="P6B2_Question_5_2.png">
+      </div>
+      <div class='tile'>
+        <img alt="" src="P6C1_Question_5_3.png">
+        <img alt="" src="P6C2_Question_5_3.png">
+      </div>
+      <div class='tile'>
+        <img alt="" src="P6D1_Question_5_4.png">
+        <img alt="" src="P6D2_Question_5_4.png">
+      </div>
+    </div>
+
+    <div class='slide tileset' id='page7'>
+      <p class='question'>6. What's the weather like where you are?</p>
+      <div class='tile active'>
+        <img alt="" src="P7A1_Question_6_1_350x350.gif">
+        <img alt="" src="P7A1_Question_6_1_cover.png">
+      </div>
+      <div class='tile'>
+        <img alt="" src="P7B1_Question_6_2_350x350.gif">
+        <img alt="" src="P7B2_Question_6_2_cover.png">
+      </div>
+      <div class='tile'>
+        <img alt="" src="P7C1_Question_6_3_350x350.gif">
+        <img alt="" src="P7C2_Question_6_3_cover.png">
+      </div>
+      <div class='tile'>
+        <img alt="" src="P7D1_Question_6_4_350x350.gif">
+        <img alt="" src="P7D2_Question_6_4_cover.png">
+      </div>
+    </div>
+
+    <div class='slide tileset' id='page8'>
+      <p class='question'>7. What helps you reach your fitness goals (besides your favorite fitness tracker)?</p>
+      <div class='tile active'>
+        <img alt="" src="P8A1_Question_7_1_700x700.png">
+        <img alt="" src="P8A2_Question_7_1_700x700.png">
+      </div>
+      <div class='tile'>
+        <img alt="" src="P8B1_Question_7_2_700x700.png">
+        <img alt="" src="P8B2_Question_7_2_700x700.png">
+      </div>
+      <div class='tile'>
+        <img alt="" src="P8C1_Question_7_3_700x700.png">
+        <img alt="" src="P8C2_Question_7_3_700x700.png">
+      </div>
+      <div class='tile'>
+        <img alt="" src="P8D1_Question_7_4_700x700.png">
+        <img alt="" src="P8D2_Question_7_4_700x700.png">
+      </div>
+    </div>
+    <script>
+      document.querySelectorAll('.tileset')
+      Array.prototype.forEach.call(document.querySelectorAll('.tileset'), function(tileset) {
+        Array.prototype.forEach.call(tileset.querySelectorAll('.tile'), function(tile) {
+          tile.addEventListener('click', function(event) {
+            tileset.querySelector('.tile.active').classList.remove('active');
+            tile.classList.add('active');
+          });
+        });
+      });
+    </script>
+
+    <div class='slide' id='page9'>
+      <p class='title'>After answering these questions the quiz would analyze your results and provide you with helpful information such as what is shown below.</p>
+      <img alt="" src="P9_Fitbit_AerialYoga.gif">
+      <h2 class='caption'>Classic Fitness</h2>
+      <p class='result'>You're an old soul, and find workout inspiration from your friends who can motivate you to achieve more. Classic Fitness is a new movement that incorporates old school exercises like squats, jump rope, push-ups, and more, set to a custom playlist of throwback jams for the perfect retro soundtrack. Rocking a Fitbit Charge HR™ while you exercise allows you to get real-time stats like steps, distance, calorie burn and heart rate and workout summaries after you finish. So grab a group of friends and have some fun!</p>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="30" height="42" viewBox="0 0 319.444 282.94" enable-background="new 0 0 319.444 282.94" xml:space="preserve">',
+      <path d="M169.312,277.783c4.773,4.78,12.534,4.78,17.308,0L314.57,149.839c4.779-4.78,4.779-12.527,0-17.308L186.625,4.586 C184.239,2.193,181.105,1,177.972,1c-3.134,0-6.267,1.193-8.654,3.586c-4.779,4.78-4.779,12.528,0,17.308l106.47,106.477H13.24 C6.483,128.37,1,133.854,1,140.61c0,6.757,5.483,12.24,12.24,12.24h263.699L169.318,260.476 C164.533,265.256,164.533,273.004,169.312,277.783z"></path>
+    </svg>
+
+    <script>
+      var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'), 0);
+      var svg = document.querySelector('svg');
+      svg.addEventListener('click', function() {
+        var active = slides.indexOf(document.querySelector('.slide.active'));
+        if (active < slides.length - 1) {
+          slides[active++].classList.remove('active');
+          slides[active++].classList.add('active');
+        }
+        if (active >= slides.length) {
+          window.parent.postMessage('final-page', '*');
+          svg.parentNode.removeChild(svg);
+        }
+      });
+    </script>
+  </body>
+</html>

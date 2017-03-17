@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>W1 Instagram</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <style>
+    body { margin: 0; padding: 0; width: 100%; margin: 0 auto; }
+    body > img { width: 100%; }
+    video, img.video { position: absolute; left:15%; top: 28vw; width: 70vw; }
+    #view { position: absolute; top: 100vw; left: 10%; width: 30vw; }
+    #comment { position: absolute; top: 104vw; left: 10%; width: 79vw; }
+  </style>
+</head>
+<body>
+  <img alt='' src='image.png'>
+  <!--
+  <img alt='' class='video' src='w_video_1_n.gif'>
+  -->
+  <video alt="" src="https://talaria-production.s3.amazonaws.com/uploads/acaa3a6c-4190-4324-933a-29b77975ba0e/w_video_1_n.mp4" autoplay></video>
+  <img alt="" id="view" src="views.png">
+  <img alt="" id="comment" src="comments.png">
+  <script>
+    var armed = true;
+    document.querySelector('video').addEventListener('ended', function(event) {
+      if (armed) {
+        window.parent.postMessage('final-page', '*');
+        armed = false;
+      }
+      event.target.play();
+    }, false);
+  </script>
+</body>
+</html>

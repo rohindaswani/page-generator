@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <title> Self </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <style>
+      body { margin: 0; padding: 0; width: 980px; margin: 0 auto; }
+      #background { width: 980px; }
+      #ad { position: absolute; left: 650px; width: 245px; }
+    </style>
+    <script src="../scripts/pin.js"></script>
+    <script src="../scripts/notify-bottom.js"></script>
+  </head>
+  <body>
+    <img alt="" id="background" src="image.png">
+    <img alt="" id="ad" src="#">
+    <script>
+      function choose(target, list) { document.querySelector(target).src = list[Math.floor(Math.random() * list.length)] }
+      function addPathAdsImage(list) { return list.map(function(entry) { return "../ads/" + entry }) }
+      choose('#ad', addPathAdsImage(['side_ad_1.gif','side_ad_2.gif','side_ad_3.gif', 'side_ad_4.gif', 'side_ad_5.gif', 'side_ad_6.gif', 'side_ad_7.gif']));
+      pin('#ad', 450, 7850);
+    </script>
+  </body>
+</html>
