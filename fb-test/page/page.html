@@ -44,6 +44,7 @@
   var button = document.querySelector('button');
   video.addEventListener('play', function(e) { button.className = "hidden"; });
   video.addEventListener('pause', function(e) { button.className = ""; });
+  video.addEventListener('ended', function(e) { window.parent.postMessage('video-ended', '*')});
   button.addEventListener('click', function(e) { video.play(); });
 </script>
 </body>
