@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <form>
+      <input type="hidden" name="continue" value="http://localhost:63342/talaria/public/photobook-followup.html">
+      <div>
+        <label for="respondent-contact">Contact:</label>
+        <input type="text" name="respondent_contact" value="6178007860">
+      </div>
+      <div>
+        <label for="project-id">Project Id:</label>
+        <input type="text" name="project_id" value="110">
+      </div>
+      <div>
+        <label for="question-id">Question Id:</label>
+        <input type="text" name="question_id" value="1953_Hart_All">
+      </div>
+      <div>
+        <label for="respondent-id">Respondent Id:</label>
+        <input type="text" name="respondent_id" value="949">
+      </div>
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </body>
+  <script>
+    window.addEventListener('load', function(event) {
+      console.log('load event');
+      fetch('http://f7d66a9b.ngrok.io/api/photobooks/xx', {
+        method: 'GET',
+        redirect: 'follow'
+      }).then(function(response) {
+        return response.json();
+      }).then(function(json) {
+        console.log('json', json);
+        var form = document.querySelector('form');
+        form.method = 'POST';
+        form.action = json.registrations_post;
+      });
+    });
+  </script>
+</html>
+

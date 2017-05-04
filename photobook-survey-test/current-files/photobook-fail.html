@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+<h1> Authentication Failed! Try Again</h1>
+<form>
+  <input type="hidden" name="success" value="http://localhost:63342/talaria/public/photobook-success.html">
+  <input type="hidden" name="fail" value="http://localhost:63342/talaria/public/photobook-fail.html">
+  <input type="hidden" name="respondent_contact" value="6178007860">
+  <input type="hidden" name="project_id" value="110">
+  <input type="hidden" name="question_id" value="1953_Hart_All">
+  <input type="hidden" name="respondent_id" value="949">
+  <label for="challenge"> Challenge:</label>
+  <input type="text" name="challenge" value="">
+  <button type="submit">Submit</button>
+</form>
+</body>
+<script>
+  window.addEventListener('load', function(event) {
+    fetch('http://f7d66a9b.ngrok.io/api/photobooks/xxx', {
+      method: 'GET',
+      redirect: 'follow'
+    }).then(function(response) {
+      return response.json();
+    }).then(function(json) {
+      console.log('json', json);
+      var form = document.querySelector('form');
+      var rid = document.querySelector("input[name=respondent_id]").value;
+      var inputTag = document.createElement('input');
+      inputTag.type = 'hidden';
+      inputTag.name = '_method';
+      inputTag.value = 'put';
+
+      form.appendChild(inputTag);
+      form.method = 'POST';
+      form.action = json.registrations_post + "/" + rid;
+    });
+  });
+</script>
+</html>
+
+
