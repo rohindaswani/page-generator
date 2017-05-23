@@ -17,22 +17,22 @@
   <script src='../../scripts/randomize.js'></script>
 </head>
 <body>
-  <div class="top-background"><img id="top-banner" src="../ads/banner_ad_5.jpg"></div>
-  <img id='side-ad' alt='' src='../ads/side_ad_6.jpg'>
+  <div class="top-background"><img id="top-banner" src="../ads/banner_ad_3.jpg"></div>
+  <img id='side-ad' alt='' src='../ads/side_ad_4.jpg'>
   <img alt='' src='bottom-image.png'>
   <script>
     function choose(target, list) { target.src = list[Math.floor(Math.random() * list.length)] }
     function addPath(list) { return list.map(function(entry) { return "../ads/" + entry }) }
-    choose(document.querySelector('#top-banner'), addPath(['banner_ad_5.jpg']));
-    choose(document.querySelector('#side-ad'), addPath(['side_ad_6.jpg']));
+    choose(document.querySelector('#top-banner'), addPath(['banner_ad_3.jpg']));
+    choose(document.querySelector('#side-ad'), addPath(['side_ad_4.jpg']));
     pin('#side-ad', 400, 4700);
 
     var ad_path = "../ads/";
     var top_ads = [
-      { url: 'banner_ad_5.jpg', duration: 9000}
+      { url: 'banner_ad_3.jpg', duration: 9000}
     ];
     var side_ads = [
-      { url: 'side_ad_6.jpg', duration: 9000}
+      { url: 'side_ad_4.jpg', duration: 9000}
     ];
 
     randomizeAds('#top-banner', ad_path, top_ads);
