@@ -21,9 +21,12 @@
   </div>
 <script>
 window.onmessage = function(event) {
-  if (event.data === 'video-ended') alert("Video Ended");
+//  if (event.data === 'video-ended') alert("Video Ended");
   if (event.data === 'final-page') alert("bottom of scroll");
 };
+  window.addEventListener('message',function(event){
+    if(event.data ==='video-ended') alert("Video Ended");
+  })
 </script>
   </body>
 </html>

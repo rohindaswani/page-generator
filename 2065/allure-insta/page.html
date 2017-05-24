@@ -32,10 +32,18 @@
 <body>
   <img alt='' src='image.png'>
   <div class="video-wrapper">
-      <video src="video.mp4" autoplay loop></video>
+      <video src="video.mp4" autoplay></video>
       <button><img alt="play" src="../../assets/play-button.svg"></button>
   </div>
   <script>
+    function once(fn) {
+      function callback(event) {
+        event.target.removeEventListener(event.type, callback);
+        fn(event);
+      };
+      return callback;
+    }
+
     var video = document.querySelector('video');
     video.addEventListener('contextmenu',function(e){
       e.preventDefault();
@@ -44,7 +52,10 @@
     var button = document.querySelector('button');
     video.addEventListener('play', function(e) { button.className = "hidden"; });
     video.addEventListener('pause', function(e) { button.className = ""; });
-    video.addEventListener('ended', function(e) { window.parent.postMessage('video-ended', '*')});
+    video.addEventListener('ended', once(function(e) {
+      video.loop = true;
+      video.play();
+      window.parent.postMessage('video-ended', '*')}));
   </script>
 </body>
 </html>
