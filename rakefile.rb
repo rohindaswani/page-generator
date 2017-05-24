@@ -16,6 +16,7 @@ namespace :assets do
         line.chomp!
         Dir["**/#{line}"]
       end
+      root_excludes << ".s3exclude"
 
       excludes_list = Dir["**/.s3ignore"].flat_map do |path|
         dir = File.dirname(path)
@@ -25,6 +26,7 @@ namespace :assets do
           File.open(path).map(&:chomp).map {|name| File.join(dir, name) }
         end
       end
+      excludes_list << ".s3ignore"
 
       p excludes_list.join(' ')
       source = params.dir || "."
