@@ -1,32 +1,43 @@
 require 'aws-sdk'
 
 namespace :assets do
-  desc 'script to upload files to s3'
-  task :deploy, :dir do |t, args|
-
-    puts 'connecting to S3'
-    Aws.config = { credentials: Aws::SharedCredentials.new, region: 'us-east-1'}
-    files = Dir.glob("#{args.dir}/**/*")
-    total_files = files.length
-    s3_bucket = Aws::S3::Resource.new.bucket('s3-assets.mercuryanalytics.com')
-
-    until files.empty?
-      file = files.pop rescue nil
-      next unless file
-
-      path = file
-      data = File.open(file)
-
-      if File.directory?(data)
-        data.close
-        next
-      else
-        obj = s3_bucket.object("pageviewer/#{path}")
-        obj.put(body: data, acl: 'public-read')
-        data.close
-        puts obj.public_url
+  namespace :deploy do
+    def exclude_all(patterns)
+      patterns.reject(&:empty?).reject {|s| s =~ /^\s*#/ }.flat_map do |pattern|
+        pattern += "/*" if File.directory? pattern
+        ["--exclude", pattern]
       end
     end
-    puts total_files.inspect
+
+    desc 'script to upload files to s3'
+    task :all, :dir do |_, params|
+
+      root_excludes = File.open(".s3exclude").flat_map do |line|
+        line.chomp!
+        Dir["**/#{line}"]
+      end
+
+      excludes_list = Dir["**/.s3ignore"].flat_map do |path|
+        dir = File.dirname(path)
+        if dir == '.'
+          File.open(path).map(&:chomp)
+        else
+          File.open(path).map(&:chomp).map {|name| File.join(dir, name) }
+        end
+      end
+
+      p excludes_list.join(' ')
+      source = params.dir || "."
+      destination = "s3://s3-assets.mercuryanalytics.com/pageviewer/"
+      destination += params.dir if params.dir
+
+      cmd = %w[aws s3 sync --acl public-read]
+      cmd += exclude_all(excludes_list)
+      cmd += exclude_all(root_excludes)
+      cmd << source
+      cmd << destination
+      p cmd
+      system(*cmd)
+    end
   end
 end
