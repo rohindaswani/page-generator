@@ -11,12 +11,16 @@ namespace :assets do
 
     desc 'script to upload files to s3'
     task :all, :dir do |_, params|
+      Dir.chdir('build')
 
-      root_excludes = File.open(".s3exclude").flat_map do |line|
-        line.chomp!
-        Dir["**/#{line}"]
+      root_excludes = []
+      if File.exist? ".s3exclude"
+        root_excludes = File.open(".s3exclude").flat_map do |line|
+          line.chomp!
+          Dir["**/#{line}"]
+        end
+        root_excludes << ".s3exclude"
       end
-      root_excludes << ".s3exclude"
 
       excludes_list = Dir["**/.s3ignore"].flat_map do |path|
         dir = File.dirname(path)
@@ -39,7 +43,7 @@ namespace :assets do
       cmd << source
       cmd << destination
       p cmd
-      system(*cmd)
+      # system(*cmd)
     end
   end
 end
