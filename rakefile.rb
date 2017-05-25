@@ -11,6 +11,7 @@ namespace :assets do
 
     desc 'script to upload files to s3'
     task :all, :dir do |_, params|
+      puts "uploading assets to s3"
       Dir.chdir('build')
 
       root_excludes = []
@@ -32,7 +33,6 @@ namespace :assets do
       end
       excludes_list << ".s3ignore"
 
-      p excludes_list.join(' ')
       source = params.dir || "."
       destination = "s3://s3-assets.mercuryanalytics.com/pageviewer/"
       destination += params.dir if params.dir
@@ -42,8 +42,8 @@ namespace :assets do
       cmd += exclude_all(root_excludes)
       cmd << source
       cmd << destination
-      p cmd
-      # system(*cmd)
+      system(*cmd)
+      puts 'assets uploaded to s3'
     end
   end
 end
