@@ -40,7 +40,7 @@
       function callback(event) {
         event.target.removeEventListener(event.type, callback);
         fn(event);
-      };
+      }
       return callback;
     }
 
@@ -56,6 +56,9 @@
       video.loop = true;
       video.play();
       window.parent.postMessage('video-ended', '*')}));
+    button.addEventListener('click', function (e) {
+        video.play();
+    });
   </script>
 </body>
 </html>
