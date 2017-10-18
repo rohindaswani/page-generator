@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CN Braun</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <style>
+    body { margin: 0; padding: 0; width: 100%; margin: 0 auto; }
+    body > img { width: 100vw; }
+    .scroll-with-page { width: 100vw; }
+    .header { position: fixed; z-index: 2; }
+    .background { background: #f5f4f4; padding: 1vw; }
+    #top-ad { display: block; margin-left: 16vw; width: 65vw; }
+    #side-ad-1 { position: absolute; left: 66.5vw; top: 35vw; width: 24vw; z-index: 1; }
+    #side-ad-2 { position: absolute; left: 66.5vw; top: 95vw; width: 24vw; z-index: 1; }
+  </style>
+  <script src='../../scripts/collapse-header.js'></script>
+  <script src='../../scripts/notify-bottom.js'></script>
+</head>
+<body>
+  <div class="header">
+    <div class="background"><img id="top-ad" src="../ads/top_ad_1.gif"></div>
+    <img class="scroll-with-page" alt='' src='top-image.png'>
+  </div>
+  <img id='side-ad-1' alt='' src='../ads/side_ad_1.gif'>
+  <img id='side-ad-2' alt='' src='../ads/side_ad_1.gif'>
+  <img alt='' src='bottom-image.png'>
+  <script>
+    collapseHeader("div.header", "div img.scroll-with-page", 935);
+  </script>
+</body>
+</html>
