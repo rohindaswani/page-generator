@@ -17,6 +17,7 @@
   </style>
   <script src='../../scripts/collapse-header.js'></script>
   <script src='../../scripts/notify-bottom.js'></script>
+  <script src='../../scripts/randomize.js'></script>
 </head>
 <body>
   <div class="header">
@@ -24,9 +25,21 @@
     <img class="scroll-with-page" alt='' src='top-image.png'>
   </div>
   <img id='side-ad-1' alt='' src='../ads/side_ad_1.gif'>
-  <img id='side-ad-2' alt='' src='../ads/side_ad_1.gif'>
+  <img id='side-ad-2' alt='' src='../ads/side_ad_2.gif'>
   <img alt='' src='bottom-image.png'>
   <script>
+    var ad_path = "../ads/";
+    var top_ads = [
+      { url: 'top_ad_1.gif', duration: 8500},
+      { url: 'top_ad_2.gif', duration: 9500}
+    ];
+    var side_ads = [
+      { url: 'side_ad_1.gif', duration: 8500},
+      { url: 'side_ad_2.gif', duration: 8500}
+    ];
+    randomizeAds('#top-ad', ad_path, top_ads);
+    randomizeAds('#side-ad-1', ad_path, side_ads);
+    randomizeAds('#side-ad-2', ad_path, side_ads);
     collapseHeader("div.header", "div img.scroll-with-page", 935);
   </script>
 </body>
