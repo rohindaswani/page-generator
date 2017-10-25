@@ -13,6 +13,24 @@
     #side-ad-2 { position: absolute; left: 73%; top: 113vw; width: 18vw; }
     #side-ad-3 { position: absolute; left: 70%; top: 215vw; width: 24vw; }
     #middle-banner { position: absolute; left: 20vw; top: 201vw; width: 63vw; }
+    video { width: 100%; height: 100% }
+    .wrapper-1 { position: absolute; left: 21vw; top: 40vw; width: 47vw; }
+    .video > button {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        position: absolute;
+        width: 25vw;
+        height: 25vw;
+        min-width: 70px;
+        min-height: 70px;
+        max-width: 300px;
+        max-height: 300px;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+    button.hidden { display: none; }
   </style>
   <script src='../../scripts/notify-bottom.js'></script>
   <script src='../../scripts/randomize.js'></script>
@@ -20,6 +38,10 @@
 </head>
 <body>
   <img id="top-ad-1" alt="" src="../ads/top_ad_1.gif">
+  <div class="video wrapper-1">
+      <video src="https://talaria-production.s3.amazonaws.com/uploads/c6d00c64-15fa-4dd7-9b4b-e5ae58668faf/2243_WIRED_driving_design_technology_shaping.mp4" autoplay></video>
+      <button><img alt="play" src="../../assets/play-button.svg"></button>
+  </div>
   <img alt='' src='image.png'>
   <img id='side-ad-1' alt='' src='../ads/side_ad_1.gif'>
   <img id='side-ad-2' alt='' src='../ads/side_ad_2.gif'>
@@ -37,6 +59,17 @@
       { url: 'side_ad_3.gif', duration: 20000},
       { url: 'side_ad_4.gif', duration: 20000}
     ];
+    Array.prototype.forEach.call(document.querySelectorAll('video'), function(video) {
+      video.addEventListener('contextmenu',function(e){
+        e.preventDefault();
+        return false;
+      });
+      var button = video.nextElementSibling;
+      button.addEventListener("click", function(e) { video.play();});
+      video.addEventListener('play', function(e) { button.className = "hidden"; });
+      video.addEventListener('pause', function(e) { button.className = ""; });
+      video.addEventListener('ended', function(e) { window.parent.postMessage('video-ended', '*')});
+    });
     pin("#side-ad-3", 700, 950);
     randomizeAds('#top-ad-1', ad_path, top_ads);
     randomizeAds('#side-ad-1', ad_path, side_ads);
