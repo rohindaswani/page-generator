@@ -29,7 +29,7 @@
     button.hidden { display: none; }
   </style>
   <script src='../../scripts/notify-bottom.js'></script>
-  <script src='../../scripts/play-in-viewer.js'></script>
+  <script src='../../scripts/play-in-view.js'></script>
 </head>
 <body>
   <div class="video wrapper-1">
@@ -53,7 +53,7 @@
       video.addEventListener('pause', function(e) { button.className = ""; });
       video.addEventListener('ended', function(e) { window.parent.postMessage('video-ended', '*')});
     });
-    playInViewer("div.wrapper-2 > video")
+    playInView("div.wrapper-2 > video")
   </script>
 </body>
 </html>

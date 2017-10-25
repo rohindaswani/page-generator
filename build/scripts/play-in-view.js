@@ -1,4 +1,4 @@
-function playInViewer(node) {
+function playInView(node) {
   if (typeof node === "string") node = document.querySelector(node);
   function play() {
     var top = node.getBoundingClientRect().top;
