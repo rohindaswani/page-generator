@@ -37,6 +37,7 @@ namespace :assets do
       destination = "s3://s3-assets.mercuryanalytics.com/pageviewer/"
       destination += params.dir if params.dir
 
+      #TODO: use something smarter than sync to compare files
       cmd = %w[aws s3 sync --acl public-read]
       cmd += exclude_all(excludes_list)
       cmd += exclude_all(root_excludes)
