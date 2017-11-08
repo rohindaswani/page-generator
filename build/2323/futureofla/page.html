@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Future OFLA</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <style>
+    body { margin: 0; padding: 0; width: 100%; margin: 0 auto; overflow-X: hidden; position: relative; z-index: 0; }
+    body > img { width: 100vw; }
+    div.header > img { width: 100vw; }
+    .header { position: fixed; z-index: 2; }
+    video { width: 100%; height: 100% }
+    .video-wrapper { position: absolute; left: 24.5vw; top: 105vw; width: 53vw; }
+    .video-wrapper > button {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        position: absolute;
+        width: 25vw;
+        height: 25vw;
+        min-width: 70px;
+        min-height: 70px;
+        max-width: 300px;
+        max-height: 300px;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+    button.hidden { display: none; }
+    .background-fixed { background-image: url("background-1.jpg"); background-attachment: fixed; background-size: contain; height: 60vw; }
+    .background > img {
+      width: 100%; }
+  </style>
+  <script src='../../scripts/notify-bottom.js'></script>
+</head>
+<body>
+  <div class="header"><img alt='' src='header.png'></div>
+  <div class="background-fixed"></div>
+  <div class="video-wrapper">
+    <video src="https://talaria-production.s3.amazonaws.com/uploads/ce73a5ee-a582-47ed-bd98-b6415eb1f66b/2323_futureofla.mp4" autoplay></video>
+    <button><img alt="play" src="../../assets/play-button.svg"></button>
+  </div>
+  <img alt='' src='image-1.png'>
+  <div class="background" id="bg-wrapper-1"><img id="bg-1" alt="" src="background-2.jpg"></div>
+  <img alt="" src="image-2.png">
+  <img alt="" src="image-4.png">
+  <script>
+    var video = document.querySelector('video');
+    video.addEventListener('contextmenu',function(e){
+      e.preventDefault();
+      return false;
+    });
+    var button = document.querySelector('button');
+    button.addEventListener("click", function(e) { video.play();});
+    video.addEventListener('play', function(e) { button.className = "hidden"; });
+    video.addEventListener('pause', function(e) { button.className = ""; });
+    video.addEventListener('ended', function(e) { window.parent.postMessage('video-ended', '*')});
+
+    var fixImageAndWrapper = function (img, wrapper, zIndex) {
+      wrapper.style.width = img.width + "px";
+      wrapper.style.height = img.height + "px";
+      img.style.top = "0px";
+      img.style.position = "fixed";
+      img.style.zIndex = zIndex;
+    };
+
+    window.addEventListener("scroll", function(e) {
+      var scroll = window.pageYOffset;
+      if ( 5355 < scroll ) {
+        fixImageAndWrapper(document.querySelector("#bg-1"), document.querySelector("#bg-wrapper-1"), -1)
+      }
+    })
+  </script>
+</body>
+</html>
