@@ -47,10 +47,7 @@
   </div>
   <img alt='' src='bottom-image.png'>
   <script>
-    topAd = document.querySelector("#top-ad");
-    top.addEventListener("load", function(e) {
-      pinWithHeader("div.header", "#side-ad", 100, 1450);
-    });
+    pinWithHeader("div.header", "#side-ad", 100, 1450);
 
     var video = document.querySelector('video');
     video.addEventListener('contextmenu',function(e){
@@ -62,6 +59,7 @@
     video.addEventListener('play', function(e) { button.className = "hidden"; });
     video.addEventListener('pause', function(e) { button.className = ""; });
     video.addEventListener('ended', function(e) { window.parent.postMessage('video-ended', '*')});
+    video.play();
   </script>
 </body>
 </html>
