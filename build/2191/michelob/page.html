@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Micehlob</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <style>
+    body { margin: 0; padding: 0; width: 100%; margin: 0 auto; overflow-X: hidden; }
+    body > img { width: 100vw; }
+    .header { position: fixed; z-index: 2; }
+    .top-background { background: black; }
+    #top-ad { display: block; margin-left: 16vw; width: 65vw; }
+    #fix-with-scroll { position: absolute; left: 72%; top: 60vw; width: 22vw; z-index: 1;}
+    #ba-side-ad { position: relative; width: 22vw; }
+    #side-ad { position: relative; top: 10vw; width: 22vw;  }
+  </style>
+  <script src='../../scripts/pin-div-with-viewer.js'></script>
+  <script src='../../scripts/notify-bottom.js'></script>
+  <script src="../../scripts/randomize.js"></script>
+</head>
+<body>
+  <div class="top-background"><img id="top-ad" src="../ads/top_ad_1.gif"></div>
+  <img alt='' src='image.png'>
+  <div id="fix-with-scroll">
+    <img id='ba-side-ad' alt='' src='../ads/side_ad_ba.gif'>
+    <img id='side-ad' alt='' src='../ads/side_ad_1.gif'>
+  </div>
+  <script>
+    var ad_path = "../ads/";
+    var top_ads = [
+      { url: 'top_ad_1.gif', duration: 10000},
+      { url: 'top_ad_2.gif', duration: 10000},
+      { url: 'top_ad_3.gif', duration: 10000},
+      { url: 'top_ad_4.gif', duration: 10000}
+    ];
+    var side_ads = [
+      { url: 'side_ad_1.gif', duration: 10000},
+      { url: 'side_ad_2.gif', duration: 10000},
+      { url: 'side_ad_3.gif', duration: 10000},
+      { url: 'side_ad_4.gif', duration: 10000}
+    ];
+    randomizeAds('#top-ad', ad_path, top_ads);
+    randomizeAds('#side-ad', ad_path, side_ads);
+    pinTheDiv("#fix-with-scroll", 100, 1100);
+  </script>
+</body>
+</html>
