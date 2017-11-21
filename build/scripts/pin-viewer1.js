@@ -8,12 +8,12 @@ function pin(node, minScroll, maxScroll) {
     if (scroll < minScroll) {
       node.style.position = "absolute";
       node.style.top = minScroll + "px";
-    } else if (scroll < maxScroll - node.height) {
+    } else if (scroll < maxScroll - node.clientHeight) {
       node.style.top = 0;
       node.style.position = "fixed";
     } else {
       node.style.position = "absolute";
-      node.style.top = maxScroll - node.height + "px";
+      node.style.top = maxScroll - node.clientHeight + "px";
     }
   }
   window.addEventListener('scroll', function(event) { window.requestAnimationFrame(animator); }, false);
