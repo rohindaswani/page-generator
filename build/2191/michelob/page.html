@@ -8,12 +8,11 @@
   <style>
     body { margin: 0; padding: 0; width: 100%; margin: 0 auto; overflow-X: hidden; }
     body > img { width: 100vw; }
-    .header { position: fixed; z-index: 2; }
     .top-background { background: black; }
     #top-ad { display: block; margin-left: 16vw; width: 65vw; }
-    #fix-with-scroll { position: absolute; left: 72%; top: 60vw; width: 22vw; z-index: 1;}
+    #fix-with-scroll { position: absolute; left: 72%; top: 50vw; width: 22vw; z-index: 1;}
+    #side-ad { position: relative; width: 22vw;  }
     #ba-side-ad { position: relative; width: 22vw; }
-    #side-ad { position: relative; top: 10vw; width: 22vw;  }
   </style>
   <script src='../../scripts/pin-viewer1.js'></script>
   <script src='../../scripts/notify-bottom.js'></script>
@@ -23,8 +22,8 @@
   <div class="top-background"><img id="top-ad" src="../ads/top_ad_1.gif"></div>
   <img alt='' src='image.png'>
   <div id="fix-with-scroll">
-    <img id='ba-side-ad' alt='' src='../ads/side_ad_ba.gif'>
     <img id='side-ad' alt='' src='../ads/side_ad_1.gif'>
+    <img id='ba-side-ad' alt='' src='../ads/side_ad_ba.gif'>
   </div>
   <script>
     var ad_path = "../ads/";
