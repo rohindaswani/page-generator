@@ -9,12 +9,15 @@
     body { margin: 0; padding: 0; width: 100%; margin: 0 auto; overflow-X: hidden; }
     body > img { width: 100vw; }
     .header { position: fixed; z-index: 2; }
-    .top-background { background: black; }
+    .background { background: black; }
+    .bottom-background { background: #f2f1e5; }
     .page { display: block; width: 100vw; }
-    #top-ad { display: block; margin-left: 16vw; width: 65vw; }
     #fix-with-scroll { position: absolute; left: 72%; top: 54vw; width: 22vw; z-index: 1;}
     #side-ad { position: relative; width: 22vw;  }
     #ba-side-ad { position: relative; width: 22vw; }
+    .banner { display: block; width: 65vw; }
+    .top { margin-left: 16vw; }
+    .bottom { margin-left: 16vw; padding: 2vw; }
   </style>
   <script src='../../scripts/pin-with-header.js'></script>
   <script src='../../scripts/notify-bottom.js'></script>
@@ -23,9 +26,11 @@
 </head>
 <body>
   <div class="header">
-    <div class="top-background"><img id="top-ad" src="../ads/top_ad_1.gif"></div>
+    <div class="background"><img class="banner top" id="top-banner" src="../ads/top_ad_1.gif"></div>
     <img class="page" alt='' src='top-image-2.png'>
   </div>
+  <img class="page" alt='' src='middle-image.png'>
+  <div class="bottom-background"><img class="banner bottom" id="bottom-banner-1" alt="" src="../ads/top_ad_2.gif"></div>
   <img class="page" alt='' src='bottom-image.png'>
   <div id="fix-with-scroll">
     <img id='side-ad' alt='' src='../ads/side_ad_1.gif'>
@@ -45,7 +50,8 @@
       { url: 'side_ad_3.gif', duration: 10000},
       { url: 'side_ad_4.gif', duration: 10000}
     ];
-    randomizeAds('#top-ad', ad_path, top_ads);
+    randomizeAds('#top-banner', ad_path, top_ads);
+    randomizeAds('#bottom-banner-1', ad_path, top_ads);
     randomizeAds('#side-ad', ad_path, side_ads);
     collapseHeader("div.header", "div img.page", 70);
     pinWithHeader("div img.page", "#fix-with-scroll", 20, 213, -240);
