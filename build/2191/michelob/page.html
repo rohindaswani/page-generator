@@ -8,18 +8,24 @@
   <style>
     body { margin: 0; padding: 0; width: 100%; margin: 0 auto; overflow-X: hidden; }
     body > img { width: 100vw; }
+    .header { position: fixed; z-index: 2 }
+    .page { display: block; width: 100vw; }
     .top-background { background: black; }
     #top-ad { display: block; margin-left: 16vw; width: 65vw; }
-    #fix-with-scroll { position: absolute; left: 72%; top: 50vw; width: 22vw; z-index: 1;}
+    #fix-with-scroll { position: absolute; left: 72%; top: 50vw; width: 22vw; }
     #side-ad { position: relative; width: 22vw;  }
     #ba-side-ad { position: relative; width: 22vw; }
   </style>
-  <script src='../../scripts/pin-viewer1.js'></script>
+  <script src='../../scripts/pin-with-header.js'></script>
   <script src='../../scripts/notify-bottom.js'></script>
   <script src="../../scripts/randomize.js"></script>
+  <script src="../../scripts/collapse-header.js"></script>
 </head>
 <body>
-  <div class="top-background"><img id="top-ad" src="../ads/top_ad_1.gif"></div>
+  <div class="header">
+    <div class="top-background"><img id="top-ad" src="../ads/top_ad_1.gif"></div>
+    <img class="page" alt="" src="top-image-2.png">
+  </div>
   <img alt='' src='image.png'>
   <div id="fix-with-scroll">
     <img id='side-ad' alt='' src='../ads/side_ad_1.gif'>
@@ -41,7 +47,8 @@
     ];
     randomizeAds('#top-ad', ad_path, top_ads);
     randomizeAds('#side-ad', ad_path, side_ads);
-    pin("#fix-with-scroll", 100, 1350);
+    collapseHeader("div.header", "div img.page", 50);
+    pinWithHeader(".header img.page", "#fix-with-scroll", 100, 1330, -240);
   </script>
 </body>
 </html>
