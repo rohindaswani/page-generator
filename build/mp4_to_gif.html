@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>mp4 To gif</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <script src="gifshot.js"></script>
+</head>
+<body>
+  <input type="file" id="files" name="files[]" />
+</body>
+<script>
+  function handleFileSelect(event) {
+    var reader = new FileReader();
+    var fileContent = "";
+
+    reader.onload = function(file) {
+      fileContent = file.target.result;
+      var video = document.createElement("video");
+      video.src = fileContent;
+      video.controls = true;
+      document.body.appendChild(video);
+
+      gifshot.createGIF({
+        'video': [fileContent]
+      },function(obj) {
+        if(!obj.error) {
+          var image = obj.image,
+              animatedImage = document.createElement('img');
+          animatedImage.src = image;
+          document.body.appendChild(animatedImage);
+        }
+      });
+    };
+    reader.readAsDataURL(this.files[0]);
+  }
+  document.getElementById("files").addEventListener("change", handleFileSelect, false);
+</script>
+</html>

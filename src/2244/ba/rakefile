@@ -1,0 +1,71 @@
+require 'erb'
+require 'binding_of_caller'
+
+ENV["ROOT"] ||= File.dirname(File.dirname(File.dirname(__FILE__)))
+ENV["PROJECT"] ||= File.basename(File.dirname(__FILE__))
+
+class String
+  def strip_heredoc
+    gsub(%r{^#{scan(%r{^[ \t]*(?=\S)}).min}}, "".freeze)
+  end
+end
+
+def root
+  ENV["ROOT"]
+end
+
+def project_name
+  ENV["PROJECT"]
+end
+
+def build_dir
+  File.join(root, "build", project_name)
+end
+
+def template_file(name)
+  File.join(root, "templates", name)
+end
+
+def build_file(name)
+  File.join(build_dir, name)
+end
+
+def project(*resources)
+  file build_dir do |t|
+    FileUtils.mkdir_p(build_dir)
+  end
+  task :build => [build_dir] + resources.map {|r| build_file(r)}
+end
+
+def cp_erb(template, name, b = binding.of_caller(1))
+  File.write name, ERB.new(File.read(template)).result(b)
+end
+
+def template(name, template = name, &block)
+  tf = template_file(template)
+  file tf unless Rake::Task[tf]
+  file build_file(name) => tf, &block
+end
+
+#################
+project "index.html", "page.html", "image.png"
+
+template "index.html" do |t|
+  cp t.sources.first, t.name
+end
+
+file build_file("image.png") => "image.png" do |t|
+  cp t.sources.first, t.name
+end
+
+template "page.html","video.html.erb" do |t|
+  title = "NAME"
+  src = "https://talaria-production.s3.amazonaws.com/uploads/2426dead-ac86-478b-b430-9c2dbd38c7b0/2243_AD_design_taking_over_the_world.mp4"
+  position = {
+      left: 7,
+      top: 17,
+      width: 90
+  }
+
+  cp_erb t.sources.first, t.name
+end
